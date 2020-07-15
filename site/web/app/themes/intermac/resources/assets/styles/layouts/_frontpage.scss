@@ -1,0 +1,326 @@
+body {
+  &.home {
+    .wrap {
+      .content {
+        main.main {
+          section {
+            &.hero {
+              padding-top: calc(11rem + 6vw);
+              padding-bottom: 11rem;
+              position: relative;
+              z-index: 1;
+            }
+
+            &.overview {
+              background: $blue;
+              padding-top: calc(20rem + 25vw);
+              padding-bottom: 15rem;
+              position: relative;
+            }
+
+            h1 {
+              &.hero__title {
+                color: $white;
+                font-size: 2.5em;
+                font-weight: 700;
+                position: relative;
+                margin-bottom: 1em;
+              }
+
+              .stagger-title__line {
+                position: relative;
+                text-transform: uppercase;
+                overflow: hidden;
+                height: 75px;
+                margin: 0;
+
+                div {
+                  position: absolute;
+                  visibility: hidden;
+                }
+              }
+            }
+
+            a.hero__cta {
+              margin-top: 4rem;
+              position: relative;
+              font-size: 2rem;
+              font-weight: 600;
+              color: $white;
+              padding: 0.375rem 1.75rem;
+              margin-left: 4.5rem;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 0;
+                z-index: 1;
+                width: 4.5rem;
+                height: 4.5rem;
+                background: $red;
+                border-radius: 0.8rem;
+                transform: translate3d(0, -50%, 0);
+                transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+              }
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: calc(50% - 0.6rem);
+                right: 1.4rem;
+                z-index: 1;
+                width: 1.7rem;
+                height: 1.1rem;
+                background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAhCAQAAACc9SimAAAAS0lEQVR42mNgIB38lydWYcz/X/9jiFMIATHEKiSkGEUhfsX/jf+/H1U8pBUnoSn9hSOJEm3qqEI6KyQpx5JQDpBUupBUZpFUEhIDANqO2qDxm8F1AAAAAElFTkSuQmCC) 50% 50%/0.7rem 1.1rem no-repeat;
+                transform: scale(1.5);
+                transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+              }
+
+              span {
+                transform: translateX(-4rem);
+                display: block;
+                position: relative;
+                z-index: 2;
+                transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+              }
+
+              &:hover {
+                color: $white;
+
+                &::before {
+                  width: 100%;
+                  height: 4.5rem;
+                  border-radius: 2.6rem;
+                  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+
+                &::after {
+                  transform: translateX(4rem);
+                  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+
+                span {
+                  transform: none;
+                  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+              }
+            }
+
+            .home__hero__pastries {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: -1;
+              pointer-events: none;
+
+              .pastries__inner {
+                position: relative;
+                height: 100%;
+
+                .donut {
+                  visibility: hidden;
+                }
+
+                .donut--1 {
+                  right: 90%;
+                  bottom: 25vh;
+                }
+
+                .donut--2 {
+                  top: 11rem;
+                  left: 70%;
+                }
+              }
+            }
+
+            .overview__pastries {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: 3;
+              pointer-events: none;
+
+              .pastries__inner {
+                position: relative;
+                height: 100%;
+
+                .donut {
+                  visibility: hidden;
+                }
+
+                .donut--1 {
+                  left: 90%;
+                  bottom: 25vh;
+                }
+
+                .donut--2 {
+                  top: 11rem;
+                  left: 70%;
+                }
+              }
+            }
+
+            .floatfig {
+              overflow: hidden;
+              border-radius: 20px;
+              width: 60%;
+              top: 0;
+              right: -5rem;
+              height: 50rem;
+              position: absolute;
+            }
+
+            .hero__round {
+              height: 15vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-between(xs, md) {
+  body {
+    &.home {
+      .wrap {
+        .content {
+          main.main {
+            section {
+              &.hero {
+                padding-top: calc(11rem + 6vw);
+                padding-bottom: 11rem;
+                position: relative;
+                z-index: 1;
+              }
+
+              &.overview {
+                background: $blue;
+              }
+
+              h1 {
+                &.hero__title {
+                  color: $white;
+                  font-size: 1.1em;
+                  font-weight: 800;
+                  position: relative;
+                }
+
+                .stagger-title__line {
+                  position: relative;
+                  text-transform: uppercase;
+                  overflow: hidden;
+                  height: 85px;
+                  margin: 0;
+
+                  div {
+                    position: absolute;
+                    visibility: hidden;
+                  }
+                }
+              }
+
+              .home__hero__pastries {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                pointer-events: none;
+
+                .pastries__inner {
+                  position: relative;
+                  height: 100%;
+
+                  .donut--1 {
+                    right: 90%;
+                    bottom: 15vh;
+                  }
+
+                  .donut--2 {
+                    top: 11rem;
+                    left: 70%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  body {
+    &.home {
+      .wrap {
+        .content {
+          main.main {
+            section {
+              &.hero {
+                padding-top: calc(11rem + 6vw);
+                padding-bottom: 11rem;
+                position: relative;
+                z-index: 1;
+              }
+
+              h1 {
+                &.hero__title {
+                  color: $white;
+                  font-size: 0.85em;
+                  font-weight: 800;
+                  position: relative;
+                }
+
+                .stagger-title__line {
+                  position: relative;
+                  text-transform: uppercase;
+                  overflow: hidden;
+                  height: 40px;
+                  margin: 0;
+
+                  div {
+                    position: absolute;
+                    visibility: hidden;
+                  }
+                }
+              }
+
+              .home__hero__pastries {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                pointer-events: none;
+
+                .pastries__inner {
+                  position: relative;
+                  height: 100%;
+
+                  .donut--1 {
+                    right: 90%;
+                    bottom: 9vh;
+                  }
+
+                  .donut--2 {
+                    top: 2rem;
+                    left: 70%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

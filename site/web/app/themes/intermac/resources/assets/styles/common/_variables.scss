@@ -1,0 +1,30 @@
+/** Import Bootstrap functions */
+@import "~bootstrap/scss/functions";
+
+// my custom colors -_-
+// Changing the theme colors
+$primary: #0a004b;
+$white: #fff;
+$grey: #5e6472;
+$blue: #4a5bcf;
+$lightblue: #00b4d8;
+$darkblue: #03045e;
+$red: #ff4f4f;
+$turquoise: #00ddb9;
+$orange: #f77f00;
+
+$secondary: #3ab7ff;
+$success: #65ff9f;
+$info: #7164ff;
+$warning: #ff9f65;
+$danger: #ff457b;
+$light: #f2d4ff;
+$dark: #18181d;
+
+$theme-colors: (
+  primary: $primary,
+) !default;
+
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;

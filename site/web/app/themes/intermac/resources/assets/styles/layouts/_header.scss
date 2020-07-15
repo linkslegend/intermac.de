@@ -1,0 +1,518 @@
+.banner .nav li {
+  @extend .nav-item;
+}
+
+.banner .nav a {
+  @extend .nav-link;
+}
+
+button.navbar-toggler {
+  display: none;
+
+  .menu-btn__cross {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+header {
+  width: 100%;
+  visibility: visible;
+  position: relative;
+  transition: ease 0.4s;
+  height: 80px;
+  z-index: 999;
+
+  &.navbar {
+    padding: 0 4.5vw 0 4.5vw;
+  }
+
+  .container-fluid {
+    max-width: 1400px;
+
+    .brand {
+      z-index: 1001;
+      height: auto;
+      background-repeat: no-repeat;
+      position: relative;
+      padding: 0;
+      width: 100%;
+    }
+
+    .intermac-logo {
+      svg#Layer_1 {
+        display: block;
+        width: 150px;
+
+        .fillcolor {
+          fill: $white;
+
+          /*
+          stroke: $white;
+          stroke-width: 0;
+          */
+        }
+      }
+    }
+
+    nav {
+      top: 0;
+
+      .menu-menu-container {
+        ul.navbar-nav {
+          li {
+            &.menu-item {
+              align-items: flex-end;
+              position: relative;
+              font-size: 1.5rem;
+              pointer-events: all;
+              white-space: nowrap;
+
+              &:not(:last-child) {
+                margin-right: 2.2rem;
+              }
+            }
+
+            a {
+              color: $white;
+              font-size: 100%;
+              font-weight: 600;
+
+              &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                bottom: 0.2rem;
+                left: 0;
+                height: 0.2rem;
+                background: #00ddb9;
+                transform-origin: 0 50%;
+                transform: translateZ(0) scaleX(0);
+                transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+              }
+
+              &:hover {
+                &::after {
+                  transform: translateZ(0) scaleX(1);
+                  background: $white;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .navigation-bg {
+        display: none;
+      }
+    }
+  }
+
+  &.is-hidden {
+    position: fixed;
+    visibility: hidden;
+    height: 0;
+    z-index: 999;
+    background: transparent;
+    transition: ease 0.4s;
+
+    .container-fluid {
+      transition: 0.65s;
+      visibility: hidden;
+      width: 100%;
+      transform: translateY(-70px);
+    }
+  }
+
+  &.is-sticky {
+    position: fixed;
+    visibility: visible;
+    height: 80px;
+    z-index: 999;
+    background: $white;
+    transition: ease 0.4s;
+
+    .container-fluid {
+      .intermac-logo {
+        svg#Layer_1 {
+          display: block;
+          width: 150px;
+
+          .fillcolor {
+            fill: $primary;
+
+            /*
+            stroke: $primary;
+            stroke-width: 0;
+            */
+          }
+        }
+      }
+
+      nav {
+        top: 0;
+
+        .menu-menu-container {
+          ul.navbar-nav {
+            li {
+              a {
+                color: $primary;
+                font-size: 100%;
+                font-weight: 600;
+
+                &::after {
+                  content: "";
+                  position: absolute;
+                  right: 0;
+                  bottom: 0.2rem;
+                  left: 0;
+                  height: 0.2rem;
+                  background: $white;
+                  transform-origin: 0 50%;
+                  transform: translateZ(0) scaleX(0);
+                  transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                }
+
+                &:hover {
+                  &::after {
+                    background: $primary;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .navigation-bg {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.is-at-top {
+    transition: ease 0.4s;
+    height: 100px;
+    background: transparent;
+    position: fixed;
+  }
+}
+
+@include media-breakpoint-between(xs, md) {
+  .navbar-expand-md .navbar-toggler {
+    display: block;
+  }
+
+  button.navbar-toggler {
+    display: block;
+    position: fixed;
+    top: 0.1rem;
+    right: 0.5rem;
+    z-index: 1000;
+    height: 3rem;
+    padding: 0 3.4rem 0 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $white;
+    background: $blue;
+    border: none;
+    border-radius: 2.1rem;
+    -webkit-box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+    pointer-events: all;
+
+    &::before {
+      content: "";
+      position: absolute;
+
+      /*
+      code not yet supported on safari/firefox
+      top: calc(50% - 100vmax);
+      right: calc(-1 * (100vmax) + 1.5rem);
+      width: calc(2 * (100vmax, 2.5rem));
+      height: calc(2 * (100vmax, 1.5rem));
+      transform: scale(calc(1 / 60));
+      */
+
+      top: 0.5rem;
+      right: 0.5rem;
+      width: 2rem;
+      height: 2rem;
+      transform: scale(1);
+      background: $primary;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    .menu-btn__cross {
+      position: absolute;
+      top: calc(50% - 0.5rem);
+      right: 1rem;
+      z-index: 1;
+      width: 1rem;
+      height: 1rem;
+      display: block;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: calc(50% - 0.1rem);
+        right: 0;
+        left: 0;
+        height: 0.2rem;
+        background: $white;
+        opacity: 0;
+        transform: rotate(0deg);
+        transition: opacity 0.4s, transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 0.1rem);
+        right: 0;
+        left: 0;
+        height: 0.2rem;
+        background: $white;
+        opacity: 0;
+        transform: rotate(0deg);
+        transition: opacity 0.4s, transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+    }
+
+    .menu-btn__hole {
+      position: absolute;
+      top: calc(50% - 1.5rem);
+      right: 0;
+      width: 3rem;
+      height: 3rem;
+      background: $blue;
+      border-radius: 50%;
+      transform: scale(0.25);
+      transition: background 0.6s, transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  header {
+    height: 5rem;
+    padding: 2rem;
+
+    .container-fluid {
+      transform: translateY(0);
+
+      .brand {
+        left: calc(2rem - 1rem);
+        height: 2rem;
+        top: 0.5rem;
+        background-repeat: no-repeat;
+        position: relative;
+        padding: 0;
+        width: 100%;
+        max-width: 150px;
+      }
+
+      .intermac-logo {
+        svg#Layer_1 {
+          width: 100px;
+        }
+      }
+
+      nav {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        position: fixed;
+        top: 10.4rem;
+        right: 0;
+        bottom: auto;
+        left: 0;
+        z-index: 1001;
+        padding: 0 5.73vw 6.5rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+
+        .menu-menu-container {
+          position: relative;
+          text-align: right;
+
+          ul.navbar-nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+            li {
+              &.menu-item {
+                line-height: 1;
+                font-size: 2rem;
+                margin-right: 0;
+                align-items: flex-end;
+
+                &:not(:last-child) {
+                  margin-right: 0;
+                  margin-bottom: 1.5rem;
+                }
+              }
+            }
+          }
+        }
+
+        .navigation-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          display: block;
+
+          &.one {
+            width: 4px;
+            background-color: $turquoise;
+          }
+
+          &.two {
+            width: 0;
+            background-color: $blue;
+          }
+        }
+      }
+    }
+
+    &.is-hidden {
+      position: fixed;
+      visibility: visible;
+      height: 5rem;
+      z-index: 999;
+      background: transparent;
+      transition: ease 0.4s;
+
+      .container-fluid {
+        visibility: visible;
+        width: 100%;
+        transform: translateY(0);
+
+        .intermac-logo {
+          visibility: hidden;
+          transform: translateY(-70px);
+        }
+      }
+    }
+
+    &.is-sticky {
+      position: fixed;
+      visibility: visible;
+      height: 5rem;
+      z-index: 999;
+      background: transparent;
+      transition: ease 0.4s;
+
+      .container-fluid {
+        visibility: visible;
+        width: 100%;
+        transform: translateY(0);
+
+        .intermac-logo {
+          visibility: hidden;
+          transform: translateY(-70px);
+
+          svg#Layer_1 {
+            display: block;
+            width: 150px;
+
+            .fillcolor {
+              fill: $primary;
+
+              /*
+              stroke: $primary;
+              stroke-width: 0;
+              */
+            }
+          }
+        }
+      }
+    }
+
+    &.is-at-top {
+      height: 5rem;
+      background: transparent;
+      position: absolute;
+    }
+  }
+
+  body.menu-open {
+    button.navbar-toggler {
+      &::before {
+        transform: scale(130);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      .menu-btn__cross {
+        &::before {
+          opacity: 1;
+          transition: opacity 0.5s 0.1s, transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          opacity: 1;
+          transform: rotate(-45deg);
+        }
+      }
+
+      .menu-btn__hole {
+        background: #ff4f4f;
+        transform: scale(1);
+      }
+    }
+
+    header {
+      .container-fluid {
+        nav {
+          opacity: 1;
+          pointer-events: all;
+          transition: opacity 0.5s 0.4s;
+        }
+      }
+    }
+  }
+}
+
+.svg-wrapper {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  background-color: $blue;
+  width: 0%;
+  height: 100%;
+}
+
+.svg-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/*
+@include media-breakpoint-up(xs) {  }
+@include media-breakpoint-up(sm) {  }
+@include media-breakpoint-up(md) {  }
+@include media-breakpoint-up(lg) {  }
+@include media-breakpoint-up(xl) {  }
+*/
