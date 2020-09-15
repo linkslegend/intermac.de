@@ -4,6 +4,9 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {CSSPlugin} from 'gsap/CSSPlugin'
 import {TimelineMax, Circ} from 'gsap';
 import Scrollbar from 'smooth-scrollbar';
+import { Swiper, Navigation, Pagination, EffectCoverflow } from 'swiper/swiper.esm';
+Swiper.use([Navigation, Pagination, EffectCoverflow]);
+
 //import ScrollMagic from 'scrollmagic';
 
 export default {
@@ -44,22 +47,6 @@ export default {
       $('body').toggleClass('menu-open');
     });
     
-    /*gsap.to('#header', {
-      yPercent: -100,
-      autoAlpha: 0,
-      duration: 0.5,
-      ease: Circ.easeInOut,
-      scrollTrigger: {
-        trigger: '.wrap',
-        scrub: false,
-        markers: true,
-        start: 'top top', 
-        end: 'bottom bottom',
-        toggleClass: {targets: '#header', className: 'is-sticky'},
-        toggleActions: 'restart complete restart reset',
-      },
-    });*/
-
     const mq = window.matchMedia( '(min-width: 992px)' );
     if (mq.matches) {
       console.log('Screen width is at least 992px')
@@ -70,16 +57,6 @@ export default {
       trigger: '#header',
       start: 'top -20',
       end: 99999,
-/*      onToggle: self => {
-        console.log('toggled:', 'isActive:', self.isActive);
-          let { isActive } = self;
-          const featureBoxes = document.querySelectorAll('#header');
-            if (isActive == true) {
-              featureBoxes[0].classList.add('is-top')
-            } else if (isActive == false) {
-              featureBoxes[0].classList.remove('is-top')
-            }
-      },*/
       onUpdate: self => {
         /*console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'isActive:', self.isActive);*/
                 let { direction, isActive } = self;
@@ -98,23 +75,12 @@ export default {
               }
           },
     });
-
-    /*gsap.to('#header', {
-      yPercent: -30,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#header',
-        start: 'top top', // the default values
-        // end: 'bottom top',
-        scrub: true,
-        markers: false,
-        toggleClass: 'is-at-top',
-      },
-    });*/
-
+  /* end scroller */
 
     gsap.to('.donut--1', {
-      yPercent: -100,
+      yPercent: -200,
+      xPercent: -120,
+      rotate: 10,
       ease: 'none',
       scrollTrigger: {
         trigger: '.main',
@@ -127,118 +93,255 @@ export default {
     });
 
     gsap.to('.donut--2', {
-      yPercent: 100,
+      yPercent: 200,
+      xPercent: 120,
+      rotate: 10,
       ease: 'none',
       scrollTrigger: {
         trigger: '.main',
-        // start: 'top bottom', // the default values
+        start: 'top top', // the default values
         // end: 'bottom top',
         scrub: true,
+        markers: false,
         toggleClass: 'active',
       }, 
     });
 
     gsap.to('.floatfig__img', {
+      yPercent: 15,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero_round',
+        start: 'top top', // the default values
+        // end: 'bottom top',
+        scrub: true,
+        markers: false,
+        toggleClass: 'active',
+      },
+    })
+
+    gsap.to('#clip-path', {
+      yPercent: -2,
+      rotate: -5,
+      xPercent: 2,
+      scale: 0.95,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.webdev',
+        start: 'top 500', // the default values
+        // end: 'bottom top',
+        scrub: true,
+        markers: false,
+        toggleClass: 'active',
+      },
+    })
+
+    gsap.to('.hero__title', {
       yPercent: -10,
       ease: 'none',
       scrollTrigger: {
-        trigger: 'section.overview',
-        // start: 'top bottom', // the default values
+        trigger: '.main',
+        start: 'top top', // the default values
         // end: 'bottom top',
         scrub: true,
+        markers: false,
         toggleClass: 'active',
+      },
+    })
+
+    // https://greensock.com/docs/v3/Plugins/ScrollTrigger/static.batch()
+    ScrollTrigger.batch('.stagger-title__line > div', {
+      // interval: 0.1, // time window (in seconds) for batching to occur. 
+      // batchMax: 3,   // maximum batch size (targets)
+      // once: true,
+      toggleClass: 'active',
+      onEnter: batch => gsap.from(batch, {
+        autoAlpha: 0, 
+        stagger: 0.25,
+        y: '100%',
+        opacity: 1,
+        scrollTrigger: {
+          trigger: '.stagger-title__line',
+          toggleClass: 'active',
+        },
+      }),
+      // also onLeave, onEnterBack, and onLeaveBack
+      // also most normal ScrollTrigger values like start, end, etc.
+    });
+
+    /* eslint-disable no-unused-vars */
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      spaceBetween: 20,
+      centeredSlides: true,
+      slidesPerView: 3,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      },
+      coverflowEffect: {
+        rotate: 4,
+        depth: 2,
+        modifier: 1,
+        slideShadows: false,
+      },
+      breakpoints: {
+        // when window width is >= 320px
+        360: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        // when window width is >= 480px
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        // when window width is >= 640px
+        800: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
       },
     });
 
-  /* end scroller */
+    var swiper2 = new Swiper('.swiper-container2', {
+      grabCursor: false,
+      loop: true,
+      spaceBetween: 20,
+      centeredSlides: true,
+      slidesPerView: 4,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        // when window width is >= 320px
+        360: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        // when window width is >= 480px
+        480: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        // when window width is >= 640px
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+      },
+    });
+    /* eslint-enable no-unused-vars */
+
+    let tl = new TimelineMax(),
+    easing = Circ.easeInOut,
+    donuts = document.querySelectorAll('.pastries__inner > .donut')
+    tl.from (
+      donuts,
+      0.8,
+      {
+        autoAlpha: 0,
+        skewX: 45,
+        skewY: 45,
+        x: 1,
+        y: 1,
+        scale: 0.1,
+        ease: easing,
+        rotation: 30,
+        duration: 0.2,
+        stagger: 0.25,
+      },
+      0.15
+    )
+
   },
 
   init() {
-    this.containerInit();
-    function contentAnimation() {
-
-        // https://greensock.com/docs/v3/Plugins/ScrollTrigger/static.batch()
-        ScrollTrigger.batch('.stagger-title__line > div', {
-          interval: 0.1, // time window (in seconds) for batching to occur. 
-          // batchMax: 3,   // maximum batch size (targets)
-          once: true,
-          toggleClass: 'active',
-          onEnter: batch => gsap.from(batch, {
-            autoAlpha: 0, 
-            stagger: 0.3, 
-            y: '100%',
-            opacity: 1,
-            scrollTrigger: {
-              trigger: '.stagger-title__line',
-              toggleClass: 'active',
-            },
-          }),
-          // also onLeave, onEnterBack, and onLeaveBack
-          // also most normal ScrollTrigger values like start, end, etc.
-        });
-    }
-
-    function objectAnimation() {
-      let tl = new TimelineMax(),
-        easing = Circ.easeInOut,
-        donuts = document.querySelectorAll('.pastries__inner > .donut')
-      tl.from (
-        donuts,
-        0.8,
-        {
-          autoAlpha: 0,
-          skewX: 45,
-          skewY: 45,
-          x: 1,
-          y: 1,
-          scale: 0.1,
-          ease: easing,
-          rotation: 30,
-          duration: 0.2,
-          stagger: 0.25,
-        },
-        0.15
-      )
-    }
+    gsap.set('.svg-wrapper', {
+      scaleX: 0,
+      rotation: 10,
+      xPercent: -150,
+      yPercent: -50,
+      transformOrigin: 'left center',
+      autoAlpha: 1,
+    });
     barba.init({
       debug: true,
-      paused: true,
+      //paused: true,
       transitions: [
         {
           name: 'basic',
           leave: function () {
-            var done = this.async();
-            gsap.to('.svg-wrapper', {
-              duration: 1.2,
-              bottom: '0%', 
-              width: '100%',
-              height: '100%',
-              ease: 'Expo.easeInOut', 
-              onComplete: done,
+            gsap.fromTo('.svg-wrapper', {
+              rotation: 10,
+              scaleX: 0,
+              xPercent: -20,
+            },
+            {
+              duration: 0.4,
+              xPercent: 0,
+              scaleX: 1,
+              rotation: 0,
+              ease: 'Power4.inOut',
+              onComplete: this.async(),
+              transformOrigin: 'left center',
             });
           },
           enter: function (data) {
-            var done = this.async();
             data.current.container.parentNode.removeChild(data.current.container);
-            gsap.from('.svg-wrapper', {
-              duration: 1,
-              bottom: '100%',
-              width: '100%',
-              ease: 'Expo.easeInOut',
-              onComplete: done,
+            gsap.to('.svg-wrapper', {
+              duration: 0.4,
+              scaleX: 0,
+              xPercent: 20,
+              rotation: -10,
+              transformOrigin: 'right center',
+              ease: 'Power4.inOut',
+              onComplete: this.async(),
             });
-            contentAnimation();
-            objectAnimation();
-          },
-          once: function (data) {
-            var done = this.async();
-            gsap.to(data.current.container, 1, {opacity: 0, onComplete: done});
-            contentAnimation();
-            objectAnimation();
           },
         },
       ],
     });
+
+    // do something before the transition starts
+    barba.hooks.before(() => {
+      document.querySelector('html').classList.add('is-animating');
+      console.log('before');
+    });
+    // do something after the transition finishes
+    barba.hooks.after(() => {
+      this.containerInit();
+      document.querySelector('html').classList.remove('is-animating');
+      console.log('After');
+    });
+    // scroll to the top of the page
+    barba.hooks.enter(() => {
+      window.scrollTo(0, 0);
+    });
+    barba.hooks.afterLeave((data) => {
+      // Set <body> classes for 'next' page
+      var nextHtml = data.next.html;
+      var response = nextHtml.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', nextHtml)
+      var bodyClasses = $(response).filter('notbody').attr('class')
+      $('body').attr('class', bodyClasses);
+      $('.navbar-toggler').click(function(e) {
+        e.stopPropagation();
+        $('body').toggleClass('menu-open');
+      });
+    });
+
+    this.containerInit();
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

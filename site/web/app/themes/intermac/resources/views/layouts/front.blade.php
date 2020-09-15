@@ -5,7 +5,7 @@
     @php do_action('get_header') @endphp
     @include('partials.header')
     <div id="scroll-container">
-        <div class="wrap" role="document" data-barba="wrapper">>
+        <div class="wrap" role="document" data-barba="wrapper">
           <div class="content" data-barba="container" data-barba-namespace="{{$post->post_name}}">
             <main class="main">
               @yield('content')
@@ -15,15 +15,12 @@
                 @include('partials.sidebar')
               </aside>
             @endif
+            @php do_action('get_footer') @endphp
+            @include('partials.footer')
+            @php wp_footer() @endphp
           </div>
       </div>
     </div>
-    <div class="svg-wrapper">
-      <div class="svg-inner">
-      </div>
-    </div>
-    @php do_action('get_footer') @endphp
-    @include('partials.footer')
-    @php wp_footer() @endphp
+    <div class="svg-wrapper"></div>
   </body>
 </html>

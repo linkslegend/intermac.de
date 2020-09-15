@@ -1,7 +1,184 @@
-//@include media-breakpoint-between(xs, md) {}
+body.single {
+  background: #fff;
 
-body {
-  &.single-post {
-    background: #fff;
+  .wrap {
+    .content {
+      padding-top: calc(10rem + 4vw);
+
+      main.main {
+        article {
+          padding: 1em;
+
+          header {
+            display: block;
+            position: relative;
+            height: auto;
+
+            .home__blogpost__pastries {
+              .donut--1 {
+                right: 92%;
+                z-index: -1;
+                bottom: 47vh;
+              }
+
+              .donut--2 {
+                top: -12rem;
+                z-index: -1;
+                left: 40%;
+              }
+            }
+
+            figure {
+              position: relative;
+              margin-bottom: 5rem;
+              margin-left: 5rem;
+              width: 65%;
+
+              img {
+                border-radius: 2rem;
+                box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+
+            h1 {
+              font-size: 4.8rem;
+              font-weight: 700;
+              margin-bottom: 5rem;
+              padding-left: 10rem;
+            }
+
+            .byline {
+              visibility: hidden;
+              height: 0;
+              padding: 0;
+              margin: 0;
+            }
+
+            time {
+              padding-left: 10rem;
+              font-size: 0.65em;
+            }
+          }
+
+          .entry-content {
+            display: block;
+            width: 100%;
+            padding-left: 12rem;
+            padding-right: 22rem;
+
+            p:not(:last-child) {
+              margin-bottom: 3rem;
+            }
+
+            figure {
+              width: 100% !important;
+              text-align: center;
+              padding: 1.5em 1em;
+              margin: 0 auto;
+
+              figcaption {
+                font-size: 0.65em;
+              }
+            }
+          }
+
+          footer {
+            visibility: hidden;
+            height: 0;
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-between(xs, md) {
+  body.single {
+    .wrap {
+      .content {
+        main.main {
+          article {
+            padding: 0;
+
+            header {
+              padding: 0;
+              z-index: -1;
+
+              .home__blogpost__pastries {
+                .donut--1 {
+                  right: 92%;
+                  z-index: -1;
+                  bottom: 7vh;
+                }
+
+                .donut--2 {
+                  top: -12rem;
+                  z-index: -1;
+                  left: 40%;
+                }
+              }
+
+              figure {
+                margin-bottom: 0;
+                margin-left: 0;
+                width: 100%;
+
+                img {
+                  border-radius: 1.6rem;
+                }
+              }
+
+              h1 {
+                font-size: 2.8rem;
+                margin-bottom: 3.5rem;
+                padding-left: 0;
+              }
+
+              time {
+                padding-left: 0;
+                font-size: 0.65em;
+              }
+            }
+
+            .entry-content {
+              padding-left: 0;
+              padding-right: 0;
+
+              p:not(:last-child) {
+                margin-bottom: 3rem;
+              }
+
+              figure {
+                width: 100% !important;
+                text-align: center;
+                padding: 0;
+                margin: 0 auto;
+
+                figcaption {
+                  font-size: 0.65em;
+                }
+              }
+            }
+
+            footer {
+              visibility: hidden;
+              height: 0;
+              padding: 0;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
   }
 }

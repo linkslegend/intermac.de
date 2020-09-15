@@ -132,6 +132,7 @@ let webpackConfig = {
   },
   externals: {
     jquery: 'jQuery',
+    Swiper: 'Swiper',
   },
   plugins: [
     new CleanPlugin([config.paths.dist], {

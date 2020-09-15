@@ -21,3 +21,49 @@
   @extend .btn;
   @extend .btn-secondary;
 }
+
+#comments {
+  background: $lightblue;
+  color: #fff;
+  margin-top: 5rem;
+  margin-left: 12rem;
+  margin-right: 22rem;
+  margin-bottom: 5rem;
+  padding: 2em;
+  border-radius: 1.6rem;
+
+  #respond {
+    .comment-form {
+      label {
+        font-size: 0.7em;
+      }
+
+      input {
+        height: 40px;
+        font-size: 1em;
+        color: $primary;
+      }
+
+      .comment-notes {
+        font-size: 0.7em;
+      }
+
+      .comment-form-cookies-consent {
+        label.wp-comment-cookies-consent {
+          padding: 15px;
+        }
+      }
+
+      .form-submit {
+        input.submit {
+          background: $primary;
+          color: #fff;
+          padding: 0.3em 2em;
+          font-size: 0.7em;
+          margin: 2em 0 0 0;
+          height: auto;
+        }
+      }
+    }
+  }
+}

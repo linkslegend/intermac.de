@@ -72,7 +72,7 @@ header {
               white-space: nowrap;
 
               &:not(:last-child) {
-                margin-right: 2.2rem;
+                margin-right: 3rem;
               }
             }
 
@@ -201,6 +201,59 @@ header {
   }
 }
 
+body.blog,
+body.single,
+body.page-template-default {
+  header {
+    &.is-at-top,
+    &.is-sticly {
+      transition: ease 0.4s;
+      height: 100px;
+      background: transparent;
+      position: fixed;
+
+      .container-fluid {
+        .intermac-logo {
+          svg#Layer_1 {
+            .fillcolor {
+              fill: $primary;
+            }
+          }
+        }
+
+        nav {
+          .menu-menu-container {
+            ul.navbar-nav {
+              li {
+                a {
+                  color: $darkblue;
+                  font-size: 100%;
+                  font-weight: 600;
+
+                  &::after {
+                    content: "";
+                    background: $darkblue;
+                  }
+
+                  &:hover {
+                    &::after {
+                      background: $primary;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.is-sticky {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
 @include media-breakpoint-between(xs, md) {
   .navbar-expand-md .navbar-toggler {
     display: block;
@@ -220,14 +273,10 @@ header {
     background: $blue;
     border: none;
     border-radius: 2.1rem;
-    -webkit-box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
     pointer-events: all;
 
     &::before {
-      content: "";
-      position: absolute;
-
       /*
       code not yet supported on safari/firefox
       top: calc(50% - 100vmax);
@@ -237,22 +286,27 @@ header {
       transform: scale(calc(1 / 60));
       */
 
-      top: 0.5rem;
-      right: 0.5rem;
-      width: 2rem;
-      height: 2rem;
-      transform: scale(1);
-      background: $primary;
-      border-radius: 50%;
-      pointer-events: none;
-      transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+      content: "";
+      position: absolute;
+      right: 5px;
+      display: block;
+      top: 5px;
+      z-index: 100;
+      width: 20px;
+      background: #02045e;
+      height: 20px;
+      border-radius: 50% 50% 50% 50%;
+      -webkit-transition: 0.5s ease-in-out;
+      transition: 0.5s ease-in-out;
+      box-shadow: 0 0 0 0 #02045e, 0 0 0 0 #02045e;
+      cursor: pointer;
     }
 
     .menu-btn__cross {
       position: absolute;
       top: calc(50% - 0.5rem);
       right: 1rem;
-      z-index: 1;
+      z-index: 101;
       width: 1rem;
       height: 1rem;
       display: block;
@@ -286,8 +340,9 @@ header {
 
     .menu-btn__hole {
       position: absolute;
-      top: calc(50% - 1.5rem);
+      top: calc(50% - 1.55rem);
       right: 0;
+      z-index: 100;
       width: 3rem;
       height: 3rem;
       background: $blue;
@@ -299,17 +354,30 @@ header {
     &:focus {
       outline: none;
     }
+
+    svg.mobile_ani {
+      content: "";
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      width: 2rem;
+      height: 2rem;
+      transform: scale(1);
+      border-radius: 50%;
+      pointer-events: none;
+      transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
   }
 
   header {
-    height: 5rem;
+    height: 50px;
     padding: 2rem;
 
     .container-fluid {
       transform: translateY(0);
 
       .brand {
-        left: calc(2rem - 1rem);
+        left: calc(1rem - 1rem);
         height: 2rem;
         top: 0.5rem;
         background-repeat: no-repeat;
@@ -389,7 +457,7 @@ header {
     &.is-hidden {
       position: fixed;
       visibility: visible;
-      height: 5rem;
+      height: 50px;
       z-index: 999;
       background: transparent;
       transition: ease 0.4s;
@@ -409,7 +477,7 @@ header {
     &.is-sticky {
       position: fixed;
       visibility: visible;
-      height: 5rem;
+      height: 50px;
       z-index: 999;
       background: transparent;
       transition: ease 0.4s;
@@ -437,20 +505,57 @@ header {
             }
           }
         }
+
+        nav {
+          .menu-menu-container {
+            ul.navbar-nav {
+              li {
+                a {
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
       }
     }
 
     &.is-at-top {
-      height: 5rem;
+      height: 50px;
       background: transparent;
       position: absolute;
+
+      .container-fluid {
+        .intermac-logo {
+          svg#Layer_1 {
+            .fillcolor {
+              fill: #fff;
+            }
+          }
+        }
+
+        nav {
+          .menu-menu-container {
+            ul.navbar-nav {
+              li {
+                a {
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 
-  body.menu-open {
+  body.menu-open,
+  body.blog {
     button.navbar-toggler {
       &::before {
-        transform: scale(130);
+        box-shadow: 0 0 0 150vw $primary, 0 0 0 150vh $primary;
+        border-radius: 0;
+        background-color: $primary;
       }
 
       &:focus {
@@ -478,41 +583,60 @@ header {
 
     header {
       .container-fluid {
+        .intermac-logo {
+          svg#Layer_1 {
+            .fillcolor {
+              fill: #fff !important;
+            }
+          }
+        }
+
         nav {
+          top: 10.4rem;
           opacity: 1;
           pointer-events: all;
           transition: opacity 0.5s 0.4s;
         }
       }
+
+      &.is-hidden {
+        .container-fluid {
+          .intermac-logo {
+            visibility: visible;
+            transform: translateY(0) !important;
+          }
+        }
+      }
+    }
+  }
+
+  body.blog,
+  body.single,
+  body.page-template-default {
+    header {
+      &.is-at-top,
+      &.is-sticly {
+        transition: ease 0.4s;
+        height: 50px;
+        background: transparent;
+        position: fixed;
+
+        .container-fluid {
+          nav {
+            .menu-menu-container {
+              ul.navbar-nav {
+                li {
+                  a {
+                    color: #fff;
+                    font-size: 100%;
+                    font-weight: 600;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
-
-.svg-wrapper {
-  position: relative;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  background-color: $blue;
-  width: 0%;
-  height: 100%;
-}
-
-.svg-inner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 10;
-  pointer-events: none;
-}
-
-/*
-@include media-breakpoint-up(xs) {  }
-@include media-breakpoint-up(sm) {  }
-@include media-breakpoint-up(md) {  }
-@include media-breakpoint-up(lg) {  }
-@include media-breakpoint-up(xl) {  }
-*/

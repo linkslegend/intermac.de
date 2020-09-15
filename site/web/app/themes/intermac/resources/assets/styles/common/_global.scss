@@ -14,6 +14,169 @@ body {
   line-height: 1.65;
   color: $primary;
   background: $primary;
+
+  &.blog {
+    background: $white;
+  }
+
+  &.page-template-default {
+    background: $white;
+
+    .content {
+      display: block;
+
+      .main {
+        position: relative;
+
+        .container {
+          padding-top: 20rem;
+          padding-bottom: 10em;
+        }
+      }
+    }
+  }
+}
+
+.is-transitioning {
+  pointer-events: none;
+  cursor: progress;
+}
+
+.primary-bg {
+  background-color: $primary !important;
+}
+
+.white-bg {
+  background-color: $white !important;
+}
+
+.grey-bg {
+  background-color: $grey !important;
+}
+
+.lightgrey-bg {
+  background-color: $lightgrey !important;
+}
+
+.blue-bg {
+  background-color: $blue !important;
+}
+
+.lightblue-bg {
+  background-color: $lightblue !important;
+}
+
+.lightblue-color {
+  color: $lightblue !important;
+}
+
+.darkblue-bg {
+  background-color: $darkblue !important;
+}
+
+.red-bg {
+  background-color: $red !important;
+}
+
+.turquoise-bg {
+  background-color: $turquoise !important;
+}
+
+.orange-bg {
+  background-color: $orange !important;
+}
+
+.bottom {
+  bottom: 0 !important;
+  top: auto !important;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.opacity-85 {
+  opacity: 0.85;
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+.opacity-95 {
+  opacity: 0.95;
+}
+
+svg {
+  &.xlblob {
+    width: 65rem;
+    height: 65rem;
+  }
+
+  &.lblob {
+    width: 55rem;
+    height: 55rem;
+  }
+
+  &.mblob {
+    width: 50rem;
+    height: 50rem;
+  }
+
+  &#cliping {
+    width: 62vmax;
+    height: 36em;
+    left: -7em;
+    display: block;
+    top: 7vmax;
+    z-index: 6;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+  }
+
+  &.right {
+    right: -7em;
+    left: auto !important;
+  }
+}
+
+.donut {
+  position: absolute;
+  width: 17rem;
+  height: 17rem;
+  background: none;
+  will-change: transform;
+}
+
+.svg-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 250vh;
+  pointer-events: none;
+  background-color: $darkblue;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.navigation.posts-navigation {
+  background: $lightgrey;
+  padding: 3rem;
+  width: 100%;
+  height: 100px;
 }
 
 #scroll-container {
@@ -55,6 +218,10 @@ body {
   color: $white;
 }
 
+.color-dark {
+  color: $primary !important;
+}
+
 [data-scrollbar] {
   overflow: auto;
 }
@@ -81,42 +248,45 @@ body {
   -ms-flex-align: start;
   align-items: flex-start;
   position: relative;
-  z-index: 2;
+  z-index: 0;
   padding-bottom: 6rem;
-}
-
-.donut {
-  position: absolute;
-  width: 17rem;
-  height: 17rem;
-  background: none;
-  will-change: transform;
 }
 
 .c-indigo {
   background: $blue;
 }
 
-.round {
-  overflow: hidden;
-  position: absolute;
-  left: 0;
-  top: -1px;
-  z-index: -2;
+#hero_round {
   width: 100%;
-  height: 25vw;
-  transform: rotate(180deg);
-  color: $primary;
-  background: none;
+  position: absolute;
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: calc(30% - 100vw);
-    width: 250vw;
-    height: 200vw;
-    background: currentColor;
-    border-radius: 50%;
+  &.top {
+    transform: rotate(180deg);
+    top: -5px;
+  }
+
+  &.bottom {
+    bottom: -5px !important;
+  }
+
+  #white {
+    fill: $white;
+  }
+
+  #primary {
+    fill: $primary;
+  }
+
+  #blue {
+    fill: $blue;
+  }
+
+  #darkblue {
+    fill: $darkblue;
+  }
+
+  #lightgrey {
+    fill: $lightgrey;
   }
 }
 
@@ -138,7 +308,57 @@ body {
   box-shadow: 0 60px 20px -20px rgba(0, 0, 0, 0.3);
 }
 
-//@include media-breakpoint-between(xs, md) {}
+@include media-breakpoint-between(xs, md) {
+  svg {
+    &.xlblob {
+      width: 35rem;
+      height: 35rem;
+    }
+
+    &.lblob {
+      width: 35rem;
+      height: 35rem;
+    }
+
+    &.mblob {
+      width: 30rem;
+      height: 30rem;
+    }
+
+    &#cliping {
+      width: 70vmax;
+      height: auto;
+      left: -13em;
+      top: 3em;
+    }
+  }
+}
+
+@include media-breakpoint-only(xs) {
+  svg {
+    &.xlblob {
+      width: 35rem;
+      height: 35rem;
+    }
+
+    &.lblob {
+      width: 35rem;
+      height: 35rem;
+    }
+
+    &.mblob {
+      width: 30rem;
+      height: 30rem;
+    }
+
+    &#cliping {
+      width: 50vmax;
+      height: auto;
+      left: 0;
+      top: 7em;
+    }
+  }
+}
 
 /*
 animation mixing

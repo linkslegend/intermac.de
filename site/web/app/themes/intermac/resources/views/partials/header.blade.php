@@ -15,7 +15,10 @@
   >
   Menu
   <span class="menu-btn__cross"></span>
-  <span class="menu-btn__hole"></span>  
+  <span class="menu-btn__hole"></span>
+  <!--<svg class="mobile_ani" height="100" width="100">
+    <circle cx="20" cy="20" r="20" stroke="#0a004b" stroke-width="3" fill="#0a004b" />
+  </svg>-->
   </button>
     <nav class="navigation-menu" id="topnavbar">
       <!--<div class="navigation-bg one"></div>

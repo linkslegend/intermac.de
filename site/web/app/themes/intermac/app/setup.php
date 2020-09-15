@@ -88,7 +88,9 @@ add_action('widgets_init', function () {
     ] + $config);
     register_sidebar([
         'name'          => __('Footer', 'sage'),
-        'id'            => 'sidebar-footer'
+        'id'            => 'sidebar-footer',
+        'before_widget' => '<div class="footer_widget %1$s %2$s col-md-4 col-12">',
+        'after_widget' => '</div>',
     ] + $config);
 });
 
