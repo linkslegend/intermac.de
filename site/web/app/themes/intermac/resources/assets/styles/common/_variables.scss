@@ -26,6 +26,40 @@ $theme-colors: (
   primary: $primary,
 ) !default;
 
+:root {
+  --primary-color: #0a004b;
+  --primary-bg-color: #fff;
+  --secondary-bg-color: #4a5bcf;
+  --secondary-font-color: #fff;
+  --bg-color: #fff;
+  --light-grey: #f1f2f8;
+  --grey: #f1f2f8ec;
+  --red-bg-color: #ff4f4f;
+  --red-color: #ff4f4f;
+  --green: #65ff9f;
+  --light-blue: #00b4d8;
+  --dark-blue-color: #03045e;
+  --dark-blue-bg-color: #03045e;
+  --font-color: #0a004b;
+  --heading-color: #0a004b;
+  --input-bg-color: #fff;
+}
+
+[data-theme="dark"] {
+  --primary-color: #f2f2f2;
+  --primary-bg-color: #161625;
+  --secondary-bg-color: #16213e;
+  --bg-color: #161625;
+  --secondary-color: #818cab;
+  --dark-blue-color: #fff;
+  --dark-blue-bg-color: #161625;
+  --light-grey: #1a1a2e;
+  --grey: #141424;
+  --font-color: #e1e1ff;
+  --heading-color: #818cab;
+  --input-bg-color: #0f3460;
+}
+
 /** Bootstrap navbar fix (https://git.io/fADqW) */
 $navbar-dark-toggler-icon-bg: none;
 $navbar-light-toggler-icon-bg: none;

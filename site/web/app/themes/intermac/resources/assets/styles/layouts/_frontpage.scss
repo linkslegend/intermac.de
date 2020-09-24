@@ -8,7 +8,7 @@ body {
           section {
             h1 {
               &.hero__title {
-                color: $white;
+                color: var(--primary-color);
                 font-size: 2.5em;
                 font-weight: 700;
                 position: relative;
@@ -37,9 +37,9 @@ body {
             }
 
             &.overview {
-              background: $blue;
+              background: var(--light-grey);
               padding-top: calc(30rem + 25vw);
-              padding-bottom: 0;
+              padding-bottom: calc(15rem + 15vw);
               position: relative;
 
               h1 {
@@ -52,16 +52,16 @@ body {
             }
 
             &.blog-swiper {
-              background: $blue;
-              padding-top: 1rem;
-              padding-bottom: 1rem;
+              background: var(--secondary-bg-color);
+              padding-top: 0;
+              padding-bottom: 0;
               position: relative;
             }
 
             &.webdev {
-              background: $blue;
-              padding-top: calc(10rem + 10vw);
-              padding-bottom: 20rem;
+              background: var(--light-grey);
+              padding-top: calc(15rem + 15vw);
+              padding-bottom: calc(15rem + 15rem);
               position: relative;
               z-index: 1;
 
@@ -80,12 +80,16 @@ body {
                   }
                 }
               }
+
+              svg#cliping {
+                top: 15vmax;
+              }
             }
 
             &.support {
-              background: $blue;
-              padding-top: 30vw;
-              padding-bottom: 30vw;
+              background: var(--bg-color);
+              padding-top: 35vw;
+              padding-bottom: 10vw;
               position: relative;
               z-index: -1;
 
@@ -181,10 +185,10 @@ body {
             .floatfig {
               overflow: hidden;
               border-radius: 20px;
-              width: 60%;
+              width: 50%;
               top: 0;
-              right: 20rem;
-              height: 60rem;
+              right: 16rem;
+              height: 55rem;
               position: absolute;
 
               .floatfig__inner {
@@ -200,6 +204,51 @@ body {
 
             .hero__round {
               height: 15vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  body {
+    &.home {
+      .wrap {
+        .content {
+          main.main {
+            section {
+              &.overview {
+                padding-top: calc(30rem + 25vw);
+              }
+
+              &.blog-swiper {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                position: relative;
+
+                .container {
+                  max-width: 100%;
+                  padding-right: 0;
+                }
+              }
+
+              &.webdev {
+                svg#cliping {
+                  top: 19vmax;
+                  left: -20vmax;
+                }
+              }
+
+              .home__support__pastries {
+                .pastries__inner {
+                  .donut--1 {
+                    right: 73%;
+                    top: 45vh;
+                  }
+                }
+              }
             }
           }
         }
@@ -224,7 +273,6 @@ body {
 
               h1 {
                 &.hero__title {
-                  color: $white;
                   font-size: 2em;
                   font-weight: 800;
                   position: relative;
@@ -270,7 +318,6 @@ body {
               }
 
               &.overview {
-                background: $blue;
                 padding-top: calc(30rem + 25vw);
                 padding-bottom: 0;
                 position: relative;
@@ -287,7 +334,6 @@ body {
               }
 
               &.blog-swiper {
-                background: $blue;
                 padding-top: 1rem;
                 padding-bottom: 1rem;
                 position: relative;
@@ -299,7 +345,6 @@ body {
               }
 
               &.webdev {
-                background: $blue;
                 padding-top: calc(3rem + 3vw);
                 padding-bottom: 20rem;
                 position: relative;
@@ -324,10 +369,14 @@ body {
                 .row.justify-content-end {
                   padding-top: 18em;
                 }
+
+                svg#cliping {
+                  top: 19vmax;
+                  left: -20vmax;
+                }
               }
 
               &.support {
-                background: $blue;
                 padding-top: 30vw;
                 padding-bottom: 30vw;
                 position: relative;
@@ -367,7 +416,6 @@ body {
 
               h1 {
                 &.hero__title {
-                  color: $white;
                   font-size: 1.4em;
                   font-weight: 800;
                   position: relative;

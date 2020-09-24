@@ -26,7 +26,7 @@
 
 <section class="overview">
    <svg id="hero_round" class="top" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path id="primary" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,101.3C640,96,800,128,960,144C1120,160,1280,160,1360,160L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+      <path id="white" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,101.3C640,96,800,128,960,144C1120,160,1280,160,1360,160L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
     </svg>
 
    <div class="container">
@@ -52,7 +52,7 @@
       </h1>
 
       <div class="row">
-         <p class="col-lg-7 col-12 color-white mlg-md-2">
+         <p class="col-lg-7 col-12 mlg-md-2">
             Erzielen Sie in kurzer Zeit mehr Neukundenanfragen durch nachhaltiges Internet Marketing.
             Der Erfolg lokaler Internetwerbung kann nachvollziehbar und transparent gemacht werden. 
             <a class="hero__cta | btn btn--cta" href="/kontakt">
@@ -77,9 +77,10 @@
       </div>
 
    </div>
-   <!--<svg id="hero_round" class="bottom" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path id="primary" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,101.3C640,96,800,128,960,144C1120,160,1280,160,1360,160L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-    </svg>-->
+
+   <svg id="hero_round" class="bottom" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path id="secondary" fill-opacity="1" d="M0,160L120,144C240,128,480,96,720,96C960,96,1200,128,1320,144L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+   </svg>
 </section>
 
 <section class="blog-swiper">
@@ -142,7 +143,7 @@
          <div class="col-12 stagger-title__line webdev d-flex justify-content-center"><div>E-Commerce</div></div>
       </h1>
       <div class="row justify-content-end">
-         <p class="col-lg-7 col-12 color-white">
+         <p class="col-lg-7 col-12">
             Wir bieten ein breites Spektrum von Dienstleistungen für 
             die Website Entwicklung und die Entwicklung von Web technologien. 
             Wir erstellen Web Projekte, Webseiten, Online Shops und vieles mehr.
@@ -322,8 +323,11 @@
       <div class="swiper-scrollbar"></div>
    </div>
 
-</section>
+   <svg id="hero_round" class="top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path id="secondary" fill-opacity="1" d="M0,224L120,208C240,192,480,160,720,160C960,160,1200,192,1320,208L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+   </svg>
 
+</section>
 
 <section class="support">
    <div class="container">
@@ -332,7 +336,7 @@
          <div class="col-12 stagger-title__line d-flex justify-content-end"><div>Beratung & Support</div></div>
       </h1>
       <div class="row justify-content-end">
-         <p class="col-lg-7 col-12 color-white mlg-2">
+         <p class="col-lg-7 col-12 mlg-2">
             Wir bieten ein breites Spektrum von Dienstleistungen für 
             die Website Entwicklung und die Entwicklung von Web technologien. 
             Wir erstellen Web Projekte, Webseiten, Online Shops und vieles mehr.
@@ -352,8 +356,9 @@
          </div>
       </div>
    </div>
-   <svg id="hero_round" class="bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path id="lightgrey" fill-opacity="1" d="M0,256L120,245.3C240,235,480,213,720,213.3C960,213,1200,235,1320,245.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
-    </svg>
+
+   <svg id="hero_round" class="top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path id="lightgrey" fill-opacity="1" d="M0,128L120,112C240,96,480,64,720,80C960,96,1200,160,1320,192L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+   </svg>
 
 </section>

@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "autoprefixer": "~8.2.0",
-    "browser-sync": "~2.26.7",
+    "browser-sync": "~2.26.12",
     "browsersync-webpack-plugin": "^0.6.0",
     "bs-html-injector": "~3.0",
     "buble-loader": "^0.4.1",
@@ -77,12 +77,12 @@
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
-    "bootstrap": "4.5.0",
-    "gsap": "^3.4.0",
+    "bootstrap": "4.5.2",
+    "gsap": "^3.5.1",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.7",
-    "smooth-scrollbar": "^8.5.2",
-    "swiper": "^6.0.3",
-    "tiny-slider": "^2.9.2"
+    "smooth-scrollbar": "^8.5.3",
+    "swiper": "^6.2.0",
+    "tiny-slider": "^2.9.3"
   }
 }

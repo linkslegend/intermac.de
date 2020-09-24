@@ -136,17 +136,46 @@ export default {
       },
     })
 
-    gsap.to('.hero__title', {
-      yPercent: -10,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.main',
-        start: 'top top', // the default values
-        // end: 'bottom top',
-        scrub: true,
-        markers: false,
-        toggleClass: 'active',
-      },
+    gsap.utils.toArray('.hero__title').forEach(section => {
+      gsap.to(section, {
+        y: -55,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          // end: 'bottom top',
+          scrub: true,
+          markers: false,
+          toggleClass: 'active',
+        },
+      })
+    })
+
+    gsap.utils.toArray('.content-has-parallax').forEach(section => {
+      gsap.to(section, {
+        y: -65,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          // end: 'bottom top',
+          scrub: true,
+          markers: false,
+          toggleClass: 'active',
+        },
+      })
+    })
+
+    gsap.utils.toArray('.list-has-parallax').forEach(section => {
+      gsap.to(section, {
+        y: -35,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          // end: 'bottom top',
+          scrub: true,
+          markers: false,
+          toggleClass: 'active',
+        },
+      })
     })
 
     // https://greensock.com/docs/v3/Plugins/ScrollTrigger/static.batch()
@@ -265,6 +294,27 @@ export default {
       0.15
     )
 
+    /* Theme switcher */
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+      toggleSwitch.addEventListener('change', switchTheme, false);
+      function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark'); //add this
+          }
+        else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light'); //add this
+          }    
+        }
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+      if (currentTheme) {
+          document.documentElement.setAttribute('data-theme', currentTheme);
+          if (currentTheme === 'dark') {
+              toggleSwitch.checked = true;
+          }
+       }
+        /* end Theme switcher */
   },
 
   init() {

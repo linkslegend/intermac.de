@@ -26,6 +26,15 @@
       @if (has_nav_menu('primary_navigation'))
         {!! wp_nav_menu($primarymenu) !!}
       @endif
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="theme-slider round"></div>
+        </label>
+      </div>
     </nav>
+
+  
   </div>
+
 </header>

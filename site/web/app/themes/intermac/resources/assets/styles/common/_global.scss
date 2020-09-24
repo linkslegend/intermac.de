@@ -1,3 +1,12 @@
+/* stylelint-disable */
+@media (prefers-color-scheme: dark) {
+  body {
+    --text-color: var(--primary-color);
+    --bkg-color: var(--primary-bg-color);
+  }
+}
+/* stylelint-enable */
+
 html {
   font-size: 62.5%;
 }
@@ -12,15 +21,16 @@ body {
   font-family: "Varela", sans-serif;
   font-size: 2.1rem;
   line-height: 1.65;
-  color: $primary;
-  background: $primary;
+  transition: ease 0.25s;
+  color: var(--text-color);
+  background: var(--primary-bg-color);
 
   &.blog {
-    background: $white;
+    background: var(--primary-bg-color);
   }
 
   &.page-template-default {
-    background: $white;
+    background: var(--primary-bg-color);
 
     .content {
       display: block;
@@ -37,53 +47,96 @@ body {
   }
 }
 
+.page-header {
+  visibility: hidden;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: var(--dark-blue-color);
+  font-size: 100%;
+  font-weight: 600;
+
+  &:hover {
+    color: var(--primary-color);
+
+    &::after {
+      transform: translateZ(0) scaleX(1);
+      background: var(--primary-bg-color);
+    }
+  }
+}
+
+/* Simple css to style it like a toggle switch */
+.theme-switch-wrapper {
+  position: absolute;
+  right: 0;
+  top: 7px;
+  display: flex;
+  align-items: center;
+
+  em {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 21px;
+  position: relative;
+  width: 40px;
+
+  input {
+    display: none;
+  }
+}
+
+.theme-slider {
+  background-color: var(--light-grey);
+  bottom: 0;
+  cursor: pointer;
+  border: 2px solid var(--primary-color);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+
+  &::before {
+    background-color: var(--primary-color);
+    bottom: 1px;
+    content: "";
+    height: 15px;
+    left: 3px;
+    position: absolute;
+    transition: 0.4s;
+    width: 15px;
+  }
+}
+
+input:checked + .theme-slider {
+  background-color: var(--light-grey);
+  border: 2px solid var(--primary-color);
+
+  &::before {
+    transform: translateX(16px);
+  }
+}
+
+.theme-slider.round {
+  border-radius: 34px;
+
+  &::before {
+    border-radius: 50%;
+  }
+}
+
 .is-transitioning {
   pointer-events: none;
   cursor: progress;
-}
-
-.primary-bg {
-  background-color: $primary !important;
-}
-
-.white-bg {
-  background-color: $white !important;
-}
-
-.grey-bg {
-  background-color: $grey !important;
-}
-
-.lightgrey-bg {
-  background-color: $lightgrey !important;
-}
-
-.blue-bg {
-  background-color: $blue !important;
-}
-
-.lightblue-bg {
-  background-color: $lightblue !important;
-}
-
-.lightblue-color {
-  color: $lightblue !important;
-}
-
-.darkblue-bg {
-  background-color: $darkblue !important;
-}
-
-.red-bg {
-  background-color: $red !important;
-}
-
-.turquoise-bg {
-  background-color: $turquoise !important;
-}
-
-.orange-bg {
-  background-color: $orange !important;
 }
 
 .bottom {
@@ -166,7 +219,7 @@ svg {
   width: 100vw;
   height: 250vh;
   pointer-events: none;
-  background-color: $darkblue;
+  background-color: var(--secondary-bg-color);
   z-index: 1;
   visibility: hidden;
   opacity: 0;
@@ -219,7 +272,7 @@ svg {
 }
 
 .color-dark {
-  color: $primary !important;
+  color: var(--primary-color);
 }
 
 [data-scrollbar] {
@@ -256,6 +309,7 @@ svg {
   background: $blue;
 }
 
+#hero_footer,
 #hero_round {
   width: 100%;
   position: absolute;
@@ -270,24 +324,36 @@ svg {
   }
 
   #white {
-    fill: $white;
+    fill: var(--bg-color);
   }
 
   #primary {
-    fill: $primary;
+    fill: var(--primary-color);
+  }
+
+  #secondary {
+    fill: var(--secondary-bg-color);
+  }
+
+  #secondary-bg-color {
+    fill: var(--secondary-bg-color);
   }
 
   #blue {
-    fill: $blue;
+    fill: var(--blue-color);
   }
 
   #darkblue {
-    fill: $darkblue;
+    fill: var(--dark-blue-color);
   }
 
   #lightgrey {
-    fill: $lightgrey;
+    fill: var(--light-grey);
   }
+}
+
+#hero_footer {
+  position: relative;
 }
 
 .slider-cards {

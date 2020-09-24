@@ -18,11 +18,12 @@ button.navbar-toggler {
   }
 }
 
+/* stylelint-disable no-descending-specificity */
 header {
   width: 100%;
   visibility: visible;
   position: relative;
-  transition: ease 0.4s;
+  transition: ease 0.25s;
   height: 80px;
   z-index: 999;
 
@@ -48,7 +49,7 @@ header {
         width: 150px;
 
         .fillcolor {
-          fill: $white;
+          fill: var(---primary-color);
 
           /*
           stroke: $white;
@@ -60,8 +61,11 @@ header {
 
     nav {
       top: 0;
+      position: relative;
 
       .menu-menu-container {
+        padding-right: 70px;
+
         ul.navbar-nav {
           li {
             &.menu-item {
@@ -72,12 +76,12 @@ header {
               white-space: nowrap;
 
               &:not(:last-child) {
-                margin-right: 3rem;
+                margin-right: 2.5rem;
               }
             }
 
             a {
-              color: $white;
+              color: var(--primary-color);
               font-size: 100%;
               font-weight: 600;
 
@@ -97,7 +101,7 @@ header {
               &:hover {
                 &::after {
                   transform: translateZ(0) scaleX(1);
-                  background: $white;
+                  background: var(--primary-bg-color);
                 }
               }
             }
@@ -107,6 +111,54 @@ header {
 
       .navigation-bg {
         display: none;
+      }
+    }
+  }
+
+  &.is-at-top {
+    transition: ease 0.4s;
+    height: 100px;
+    background: transparent;
+    position: fixed;
+
+    .container-fluid {
+      .intermac-logo {
+        svg#Layer_1 {
+          .fillcolor {
+            fill: var(--primary-color);
+
+            /*
+            stroke: var(--primary-color);
+            stroke-width: 0;
+            */
+          }
+        }
+      }
+
+      nav {
+        .menu-menu-container {
+          ul.navbar-nav {
+            li {
+              a {
+                color: var(--primary-color);
+
+                &::after {
+                  background: var(--primary-bg-color);
+                }
+
+                &:hover {
+                  &::after {
+                    background: var(--primary-color);
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .navigation-bg {
+          display: none;
+        }
       }
     }
   }
@@ -132,7 +184,7 @@ header {
     visibility: visible;
     height: 80px;
     z-index: 999;
-    background: $white;
+    background: var(--primary-bg-color);
     transition: ease 0.4s;
 
     .container-fluid {
@@ -142,10 +194,10 @@ header {
           width: 150px;
 
           .fillcolor {
-            fill: $primary;
+            fill: var(--primary-color);
 
             /*
-            stroke: $primary;
+            stroke: var(--primary-color);
             stroke-width: 0;
             */
           }
@@ -159,7 +211,7 @@ header {
           ul.navbar-nav {
             li {
               a {
-                color: $primary;
+                color: var(--dark-blue-color);
                 font-size: 100%;
                 font-weight: 600;
 
@@ -170,7 +222,7 @@ header {
                   bottom: 0.2rem;
                   left: 0;
                   height: 0.2rem;
-                  background: $white;
+                  background: var(--primary-bg-color);
                   transform-origin: 0 50%;
                   transform: translateZ(0) scaleX(0);
                   transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -178,7 +230,7 @@ header {
 
                 &:hover {
                   &::after {
-                    background: $primary;
+                    background: var(--dark-blue-color);
                   }
                 }
               }
@@ -192,67 +244,8 @@ header {
       }
     }
   }
-
-  &.is-at-top {
-    transition: ease 0.4s;
-    height: 100px;
-    background: transparent;
-    position: fixed;
-  }
 }
-
-body.blog,
-body.single,
-body.page-template-default {
-  header {
-    &.is-at-top,
-    &.is-sticly {
-      transition: ease 0.4s;
-      height: 100px;
-      background: transparent;
-      position: fixed;
-
-      .container-fluid {
-        .intermac-logo {
-          svg#Layer_1 {
-            .fillcolor {
-              fill: $primary;
-            }
-          }
-        }
-
-        nav {
-          .menu-menu-container {
-            ul.navbar-nav {
-              li {
-                a {
-                  color: $darkblue;
-                  font-size: 100%;
-                  font-weight: 600;
-
-                  &::after {
-                    content: "";
-                    background: $darkblue;
-                  }
-
-                  &:hover {
-                    &::after {
-                      background: $primary;
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &.is-sticky {
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-    }
-  }
-}
+/* stylelint-enable no-descending-specificity */
 
 @include media-breakpoint-between(xs, md) {
   .navbar-expand-md .navbar-toggler {
@@ -318,7 +311,7 @@ body.page-template-default {
         right: 0;
         left: 0;
         height: 0.2rem;
-        background: $white;
+        background: var(--primary-bg-color);
         opacity: 0;
         transform: rotate(0deg);
         transition: opacity 0.4s, transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -331,7 +324,7 @@ body.page-template-default {
         right: 0;
         left: 0;
         height: 0.2rem;
-        background: $white;
+        background: var(--primary-bg-color);
         opacity: 0;
         transform: rotate(0deg);
         transition: opacity 0.4s, transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -389,7 +382,7 @@ body.page-template-default {
 
       .intermac-logo {
         svg#Layer_1 {
-          width: 100px;
+          width: 130px;
         }
       }
 
@@ -493,13 +486,13 @@ body.page-template-default {
 
           svg#Layer_1 {
             display: block;
-            width: 150px;
+            width: 130px;
 
             .fillcolor {
-              fill: $primary;
+              fill: var(--primary-color);
 
               /*
-              stroke: $primary;
+              stroke: var(--primary-color);
               stroke-width: 0;
               */
             }
@@ -526,14 +519,6 @@ body.page-template-default {
       position: absolute;
 
       .container-fluid {
-        .intermac-logo {
-          svg#Layer_1 {
-            .fillcolor {
-              fill: #fff;
-            }
-          }
-        }
-
         nav {
           .menu-menu-container {
             ul.navbar-nav {
@@ -553,9 +538,9 @@ body.page-template-default {
   body.blog {
     button.navbar-toggler {
       &::before {
-        box-shadow: 0 0 0 150vw $primary, 0 0 0 150vh $primary;
+        box-shadow: 0 0 0 150vw var(--primary-color), 0 0 0 150vh var(--primary-color);
         border-radius: 0;
-        background-color: $primary;
+        background-color: var(--primary-color);
       }
 
       &:focus {

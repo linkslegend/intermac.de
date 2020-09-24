@@ -3,31 +3,31 @@ a.hero__cta {
   position: relative;
   font-size: 2rem;
   font-weight: 600;
-  color: $white;
+  color: var(--primary-color);
   padding: 0.375rem 1.75rem;
   margin-left: 4.5rem;
 
   &.btn--darkblue {
-    color: $darkblue;
+    color: var(--dark-blue-color);
 
     &::before {
-      background: $primary;
+      background: var(--primary-color);
     }
 
     &:hover {
-      color: $white;
+      color: var(--bg-color);
     }
   }
 
   &.btn--lightblue {
-    color: $white;
+    color: var(--bg-color);
 
     &::before {
-      background: $lightblue;
+      background: var(--light-blue-color);
     }
 
     &:hover {
-      color: $white;
+      color: var(--bg-color);
     }
   }
 
@@ -67,7 +67,7 @@ a.hero__cta {
   }
 
   &:hover {
-    color: $white;
+    color: var(--bg-color);
 
     &::before {
       width: 100%;
@@ -89,10 +89,10 @@ a.hero__cta {
 }
 
 a.form__btn {
-  color: #fff;
+  color: var(--bg-color);
 
   &:hover {
-    color: #fff;
+    color: var(--bg-color);
   }
 
   &.hero__cta {
@@ -103,7 +103,7 @@ a.form__btn {
 .btn {
   display: inline-block;
   position: relative;
-  color: #fff;
+  color: var(--bg-color);
   height: 5rem;
   padding: 0 3rem 0 5rem;
   text-align: center;
@@ -120,7 +120,7 @@ a.form__btn {
   user-select: none;
 
   &:hover {
-    color: #fff;
+    color: var(--bg-color);
   }
 
   &:focus {
@@ -145,7 +145,7 @@ span.wpcf7-form-control-wrap.checkbox {
 
     .wpcf7-list-item-label {
       display: block;
-      color: #fff;
+      color: var(--primary-color);
       font-size: 14px;
       font-weight: normal;
       left: 15px;
@@ -161,7 +161,7 @@ span.wpcf7-form-control-wrap.checkbox {
       user-select: none;
 
       &::before {
-        background: $lightblue;
+        background: var(--secondary-bg-color);
         content: "";
         height: 30px;
         left: -22px;

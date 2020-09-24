@@ -23,8 +23,8 @@
 }
 
 #comments {
-  background: $lightblue;
-  color: #fff;
+  background: var(--secondary-bg-color);
+  color: var(--secondary-font-color);
   margin-top: 5rem;
   margin-left: 12rem;
   margin-right: 22rem;
@@ -38,10 +38,19 @@
         font-size: 0.7em;
       }
 
-      input {
+      input,
+      textarea {
         height: 40px;
         font-size: 1em;
-        color: $primary;
+        background-color: var(--input-bg-color);
+        color: var(--primary-color);
+        border-color: var(--bg-color);
+        border-radius: 0.8rem;
+        transition: 0.25s all ease-in-out;
+      }
+
+      textarea {
+        height: 120px;
       }
 
       .comment-notes {
@@ -56,7 +65,7 @@
 
       .form-submit {
         input.submit {
-          background: $primary;
+          background: var(--primary-color);
           color: #fff;
           padding: 0.3em 2em;
           font-size: 0.7em;
