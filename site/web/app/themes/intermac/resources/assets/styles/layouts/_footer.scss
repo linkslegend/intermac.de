@@ -5,19 +5,36 @@
   padding: 2.5rem;
 
   .container {
-    border-top: 1px solid rgba(var(--light-blue), 0.5);
+    border-top: 1px solid var(--footer-border);
     padding: 4.5rem 2.5rem 1.5rem 2.5rem;
 
     span.company {
       float: left;
+
+      a {
+        font-weight: 500;
+      }
+    }
+
+    span.made-with {
+      float: left;
+      width: 100%;
+      font-size: 85%;
+      padding-top: 10px;
+      opacity: 0.8;
+
+      svg.fa-heart {
+        color: var(--red-bg-color);
+      }
     }
 
     ul.legal-list {
       display: inline-block;
+      float: right;
 
       li {
         float: left;
-        padding: 0 0 0 3rem;
+        padding: 0 0 0 4rem;
         list-style: none;
 
         a {
@@ -99,7 +116,7 @@ footer {
   background-image: none !important;
 
   .cookie-notice-container {
-    max-width: 950px;
+    max-width: 750px;
     min-width: auto;
     position: relative;
     width: 100%;
@@ -126,8 +143,8 @@ footer {
         padding: 5px 8px;
         margin-top: -22px;
         border-radius: 0.8rem;
-        background: transparent;
-        color: var(--primary-color);
+        background: var(--primary-color);
+        color: var(--primary-bg-color);
         font-weight: 700;
         border: 2px solid transparent;
         transition: all 0.25s ease-in-out;
@@ -146,6 +163,21 @@ footer {
 
       &::after {
         background-color: var(--red-bg-color);
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .footer_widget {
+    .textwidget {
+      ul.footer_nav {
+        li {
+          a {
+            font-weight: 500;
+            font-size: 0.85em;
+          }
+        }
       }
     }
   }

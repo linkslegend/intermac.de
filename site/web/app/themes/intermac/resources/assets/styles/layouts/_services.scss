@@ -1,9 +1,45 @@
 body {
   &.services {
+    header {
+      &.is-at-top {
+        .container-fluid {
+          .intermac-logo {
+            svg#Layer_1 {
+              .fillcolor {
+                fill: var(--white-font);
+              }
+            }
+          }
+
+          nav {
+            .menu-menu-container {
+              ul.navbar-nav {
+                li {
+                  a {
+                    color: var(--white-font);
+
+                    &::after {
+                      background: var(--primary-bg-color);
+                    }
+
+                    &:hover {
+                      &::after {
+                        background: var(--white-font);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
     .wrap {
       .content {
         main.main {
-          overflow: hidden;
+          overflow: unset;
 
           section {
             h1 {
@@ -44,7 +80,7 @@ body {
             }
 
             &.webdev {
-              background: var(--bg-color);
+              background: var(--light-grey);
               padding-top: calc(15rem + 15vw);
               padding-bottom: calc(5rem + 5vw);
               position: relative;
@@ -63,7 +99,7 @@ body {
             }
 
             &.ecommerce {
-              background: var(--light-grey);
+              background: var(--bg-color);
               padding-top: calc(20rem + 20vw);
               padding-bottom: calc(5rem + 5vw);
               position: relative;
@@ -74,7 +110,7 @@ body {
             }
 
             &.marketing {
-              background: var(--bg-color);
+              background: var(--light-grey);
               padding-top: calc(15rem + 15vw);
               padding-bottom: calc(10rem + 10vw);
               position: relative;
@@ -102,7 +138,7 @@ body {
             }
 
             &.support {
-              background: var(--light-grey);
+              background: var(--bg-color);
               padding-top: calc(15rem + 15vw);
               padding-bottom: calc(15rem + 15vw);
               position: relative;
@@ -440,6 +476,8 @@ body {
 @include media-breakpoint-down(xs) {
   body {
     &.services {
+      overflow: hidden;
+
       .wrap {
         .content {
           main.main {

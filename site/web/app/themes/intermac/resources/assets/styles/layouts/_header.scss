@@ -49,7 +49,7 @@ header {
         width: 150px;
 
         .fillcolor {
-          fill: var(---primary-color);
+          fill: var(--primary-color);
 
           /*
           stroke: $white;
@@ -255,15 +255,15 @@ header {
   button.navbar-toggler {
     display: block;
     position: fixed;
-    top: 0.1rem;
-    right: 0.5rem;
+    top: -0.3rem;
+    right: -0.3rem;
     z-index: 1000;
-    height: 3rem;
-    padding: 0 3.4rem 0 1.5rem;
-    font-size: 1rem;
+    height: 4rem;
+    padding: 0 4.3rem 0 2rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: $white;
-    background: $blue;
+    color: var(--secondary-font-color);
+    background: var(--secondary-bg-color);
     border: none;
     border-radius: 2.1rem;
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
@@ -281,27 +281,27 @@ header {
 
       content: "";
       position: absolute;
-      right: 5px;
+      right: 8px;
       display: block;
-      top: 5px;
+      top: 8px;
       z-index: 100;
-      width: 20px;
-      background: #02045e;
-      height: 20px;
+      width: 25px;
+      background: #e8e8e8;
+      height: 25px;
       border-radius: 50% 50% 50% 50%;
       -webkit-transition: 0.5s ease-in-out;
       transition: 0.5s ease-in-out;
-      box-shadow: 0 0 0 0 #02045e, 0 0 0 0 #02045e;
+      box-shadow: 0 0 0 0 #e8e8e8, 0 0 0 0 #e8e8e8;
       cursor: pointer;
     }
 
     .menu-btn__cross {
       position: absolute;
-      top: calc(50% - 0.5rem);
-      right: 1rem;
+      top: calc(50% - 0.8rem);
+      right: 1.2rem;
       z-index: 101;
-      width: 1rem;
-      height: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
       display: block;
 
       &::before {
@@ -333,14 +333,14 @@ header {
 
     .menu-btn__hole {
       position: absolute;
-      top: calc(50% - 1.55rem);
-      right: 0;
+      top: calc(50% - 2rem);
+      right: -0.01rem;
       z-index: 100;
-      width: 3rem;
-      height: 3rem;
-      background: $blue;
+      width: 4rem;
+      height: 4rem;
+      background: #4a5bcf;
       border-radius: 50%;
-      transform: scale(0.25);
+      transform: scale(0.35);
       transition: background 0.6s, transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
 
@@ -372,22 +372,23 @@ header {
       .brand {
         left: calc(1rem - 1rem);
         height: 2rem;
-        top: 0.5rem;
+        top: 0;
         background-repeat: no-repeat;
         position: relative;
         padding: 0;
         width: 100%;
         max-width: 150px;
+        transition: all 0.25s ease-in-out;
       }
 
       .intermac-logo {
         svg#Layer_1 {
-          width: 130px;
+          width: 115px;
         }
       }
 
       nav {
-        overflow-y: scroll;
+        overflow-y: visible;
         -webkit-overflow-scrolling: touch;
         position: fixed;
         top: 10.4rem;
@@ -403,6 +404,7 @@ header {
         .menu-menu-container {
           position: relative;
           text-align: right;
+          padding: 0;
 
           ul.navbar-nav {
             display: flex;
@@ -421,6 +423,11 @@ header {
                 &:not(:last-child) {
                   margin-right: 0;
                   margin-bottom: 1.5rem;
+                }
+
+                a {
+                  font-size: 1.4em;
+                  padding-bottom: 15px;
                 }
               }
             }
@@ -486,7 +493,7 @@ header {
 
           svg#Layer_1 {
             display: block;
-            width: 130px;
+            width: 115px;
 
             .fillcolor {
               fill: var(--primary-color);
@@ -504,7 +511,7 @@ header {
             ul.navbar-nav {
               li {
                 a {
-                  color: #fff;
+                  color: var(--dark-blue-color);
                 }
               }
             }
@@ -524,7 +531,7 @@ header {
             ul.navbar-nav {
               li {
                 a {
-                  color: #fff;
+                  color: var(--dark-blue-color);
                 }
               }
             }
@@ -534,13 +541,12 @@ header {
     }
   }
 
-  body.menu-open,
-  body.blog {
+  body.menu-open {
     button.navbar-toggler {
       &::before {
-        box-shadow: 0 0 0 150vw var(--primary-color), 0 0 0 150vh var(--primary-color);
+        box-shadow: 0 0 0 150vw #e8e8e8, 0 0 0 150vh #e8e8e8;
         border-radius: 0;
-        background-color: var(--primary-color);
+        background-color: #e8e8e8;
       }
 
       &:focus {
@@ -571,7 +577,7 @@ header {
         .intermac-logo {
           svg#Layer_1 {
             .fillcolor {
-              fill: #fff !important;
+              fill: var(--primary-color) !important;
             }
           }
         }
@@ -584,7 +590,8 @@ header {
         }
       }
 
-      &.is-hidden {
+      &.is-hidden,
+      &.is-sticky {
         .container-fluid {
           .intermac-logo {
             visibility: visible;
@@ -594,33 +601,42 @@ header {
       }
     }
   }
+}
 
-  body.blog,
-  body.single,
-  body.page-template-default {
-    header {
-      &.is-at-top,
-      &.is-sticly {
-        transition: ease 0.4s;
-        height: 50px;
-        background: transparent;
-        position: fixed;
+[data-theme="dark"] {
+  button.navbar-toggler {
+    color: var(--primary-color);
+    background: #3342a9;
 
-        .container-fluid {
-          nav {
-            .menu-menu-container {
-              ul.navbar-nav {
-                li {
-                  a {
-                    color: #fff;
-                    font-size: 100%;
-                    font-weight: 600;
-                  }
-                }
-              }
-            }
-          }
+    &::before {
+      background: var(--bg-color);
+      box-shadow: 0 0 0 0 #161625, 0 0 0 0 #161625;
+    }
+
+    .menu-btn__hole {
+      background: #3342a9;
+    }
+  }
+
+  body.menu-open {
+    button.navbar-toggler {
+      &::before {
+        background: var(--dark-blue-bg-color);
+        box-shadow: 0 0 0 150vw #161625, 0 0 0 150vh #161625;
+      }
+
+      .menu-btn__cross {
+        &::before {
+          background: var(--primary-bg-color);
         }
+
+        &::after {
+          background: var(--primary-bg-color);
+        }
+      }
+
+      .menu-btn__hole {
+        background: #f2f2f2;
       }
     }
   }

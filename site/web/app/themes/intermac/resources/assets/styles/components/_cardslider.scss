@@ -35,16 +35,16 @@
 
         .cardslide_inner {
           height: 100%;
-          color: $white;
+          color: var(--primary-color);
           padding: 3rem 3.5rem 4rem;
 
           a {
-            color: $white;
+            color: var(--primary-color);
             transition: all 0.25s;
 
             &:hover {
               text-decoration: none;
-              color: $white;
+              color: var(--primary-color);
             }
           }
 
@@ -107,7 +107,7 @@
       z-index: 10;
       width: 5rem;
       height: 5rem;
-      background: rgba(var(--dark-blue-bg-color), 0.5);
+      background: var(--swiper-button);
       border: none;
       border-radius: 50%;
       transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -131,7 +131,7 @@
       }
 
       &:hover {
-        background: rgba(var(--dark-blue-bg-color), 1);
+        background: var(--dark-blue-color);
       }
     }
 
@@ -142,7 +142,7 @@
       z-index: 10;
       width: 5rem;
       height: 5rem;
-      background: rgba(var(--dark-blue-bg-color), 0.5);
+      background: var(--swiper-button);
       border: none;
       border-radius: 50%;
       transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -166,7 +166,7 @@
       }
 
       &:hover {
-        background: rgba(var(--dark-blue-bg-color), 1);
+        background: var(--dark-blue-color);
       }
     }
   }
@@ -174,6 +174,93 @@
 
 /*
 @include media-breakpoint-between(xs, md) {}
-
-@include media-breakpoint-down(xs) {}
 */
+
+@include media-breakpoint-down(xs) {
+  .swiper-container {
+    padding: 0;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease;
+
+    .swiper-wrapper {
+      z-index: 1;
+
+      .swiper-slide {
+        padding: 20px 15px 20px 15px;
+        text-align: center;
+        font-size: 0.7em;
+        border-radius: 0;
+        overflow: hidden;
+        background: transparent;
+        width: inherit;
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.25s ease-in-out !important;
+        transform: scale(1) !important;
+
+        .cardslide_wrapper {
+          height: 50rem;
+          background: var(--primary-bg-color);
+          box-shadow: rgba(0, 0, 0, 0.2) 0 4px 2rem 0.01rem;
+          border-radius: 1.6rem;
+          overflow: hidden;
+          padding: 0;
+
+          .cardslide_inner {
+            height: 100%;
+            color: var(--primary-color);
+            padding: 3rem 3.5rem 4rem;
+
+            h2 {
+              text-align: left;
+              font-weight: 600;
+              font-size: 1.2em;
+              margin-bottom: 1.2rem;
+            }
+
+            .entry-content {
+              text-align: left;
+            }
+          }
+        }
+
+        &.swiper-slide-active {
+          opacity: 1;
+          box-shadow: none;
+          transform: scale(1) !important;
+          background: transparent;
+        }
+
+        &.swiper-slide-prev {
+          opacity: 0.3;
+          transform: scale(1) translate3d(90%, 0, 0) !important;
+        }
+
+        &.swiper-slide-next {
+          opacity: 1;
+          transform: scale(1) !important;
+
+          + div {
+            opacity: 0;
+            transform: scale(1) !important;
+          }
+        }
+      }
+    }
+
+    .cardslide_navigation {
+      .swiper-button-prev {
+        right: 25px;
+        top: calc(50% - 9.5rem);
+      }
+
+      .swiper-button-next {
+        left: 25px;
+        top: calc(50% - 9.5rem);
+      }
+    }
+  }
+}

@@ -95,7 +95,7 @@ a {
 }
 
 .theme-slider {
-  background-color: var(--light-grey);
+  background-color: transparent;
   bottom: 0;
   cursor: pointer;
   border: 2px solid var(--primary-color);
@@ -375,6 +375,11 @@ svg {
 }
 
 @include media-breakpoint-between(xs, md) {
+  .theme-switch-wrapper {
+    right: 55px;
+    top: -97px;
+  }
+
   svg {
     &.xlblob {
       width: 35rem;

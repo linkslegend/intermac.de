@@ -11,13 +11,18 @@
 
 <div class="legal-footer">
   <div class="container">
-      <span class="company">Intermac Systems <?php echo date("Y"); ?> </span>
-      <div class="d-flex justify-content-end">
-      <ul class="legal-list">
-        <li><a href="/impressum">Impressum</a></li>
-        <li><a href="/datenschutz">Datenschutzrichtlinien</a></li>
-        <li><a href="/cookies">Cookies</a></li>
-      </ul>
-    </div>
+      <div class="d-flex">
+        <div class="flex-fill">
+          <span class="company">© Intermac Systems <?php echo date("Y"); ?></span>
+          <span class="made-with">Made with <i class="fas fa-heart"></i> Powerd by <a href="https://wordpress.org/">Wordpress.org</a> & <a href="https://roots.io/">Roots.io</a></span>
+        </div>
+        <div class="flex-fill">
+            <ul class="legal-list">
+              <li><a href="/impressum">Impressum</a></li>
+              <li><a href="/datenschutz">Datenschutzrichtlinien</a></li>
+              <li><a href="/cookies">Cookies</a></li>
+            </ul>
+        </div>
+      </div>
   </div>
 </div>

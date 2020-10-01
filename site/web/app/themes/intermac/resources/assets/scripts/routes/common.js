@@ -8,6 +8,14 @@ import { Swiper, Navigation, Pagination, EffectCoverflow } from 'swiper/swiper.e
 Swiper.use([Navigation, Pagination, EffectCoverflow]);
 
 //import ScrollMagic from 'scrollmagic';
+/*
+    const mq = window.matchMedia( '(min-width: 992px)' );
+    if (mq.matches) {
+      console.log('Screen width is at least 992px')
+    } else {
+      console.log('Screen less than 992px')
+    }
+*/
 
 export default {
 
@@ -15,6 +23,7 @@ export default {
     // JavaScript to be fired on all pages
     gsap.registerPlugin(ScrollTrigger)
     gsap.registerPlugin(CSSPlugin)
+
 
     // let's smoth-scrollbar & Scrolltrigger work
     let scrollPositionX = 0,// eslint-disable-line
@@ -47,12 +56,7 @@ export default {
       $('body').toggleClass('menu-open');
     });
     
-    const mq = window.matchMedia( '(min-width: 992px)' );
-    if (mq.matches) {
-      console.log('Screen width is at least 992px')
-    } else {
-      console.log('Screen less than 992px')
-    }
+
     ScrollTrigger.create({
       trigger: '#header',
       start: 'top -20',
@@ -223,11 +227,17 @@ export default {
         // when window width is >= 320px
         360: {
           slidesPerView: 1,
-          spaceBetween: 20,
+          spaceBetween: 0,
+          coverflowEffect: {
+            rotate: 1,
+            depth: 1,
+            modifier: 1,
+            slideShadows: false,
+          },
         },
         // when window width is >= 480px
         480: {
-          slidesPerView: 2,
+          slidesPerView: 1,
           spaceBetween: 20,
         },
         // when window width is >= 640px
@@ -256,7 +266,7 @@ export default {
       breakpoints: {
         // when window width is >= 320px
         360: {
-          slidesPerView: 1,
+          slidesPerView: 2,
           spaceBetween: 20,
         },
         // when window width is >= 480px
@@ -320,10 +330,10 @@ export default {
   init() {
     gsap.set('.svg-wrapper', {
       scaleX: 0,
-      rotation: 10,
+      rotation: 5,
       xPercent: -150,
       yPercent: -50,
-      transformOrigin: 'left center',
+      transformOrigin: 'left left',
       autoAlpha: 1,
     });
     barba.init({

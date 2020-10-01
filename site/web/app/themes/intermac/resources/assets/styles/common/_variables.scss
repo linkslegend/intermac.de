@@ -43,6 +43,9 @@ $theme-colors: (
   --font-color: #0a004b;
   --heading-color: #0a004b;
   --input-bg-color: #fff;
+  --footer-border: #0a004b30;
+  --swiper-button: #3342a9;
+  --white-font: #f2f2f2;
 }
 
 [data-theme="dark"] {
@@ -51,6 +54,7 @@ $theme-colors: (
   --secondary-bg-color: #16213e;
   --bg-color: #161625;
   --secondary-color: #818cab;
+  --light-blue: #00b4d8;
   --dark-blue-color: #fff;
   --dark-blue-bg-color: #161625;
   --light-grey: #1a1a2e;
@@ -58,6 +62,8 @@ $theme-colors: (
   --font-color: #e1e1ff;
   --heading-color: #818cab;
   --input-bg-color: #0f3460;
+  --footer-border: #444473;
+  --white-font: #f2f2f2;
 }
 
 /** Bootstrap navbar fix (https://git.io/fADqW) */

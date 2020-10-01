@@ -3,7 +3,7 @@ body {
     .wrap {
       .content {
         main.main {
-          overflow: hidden;
+          overflow: unset;
 
           section {
             h1 {
@@ -91,7 +91,7 @@ body {
               padding-top: 35vw;
               padding-bottom: 10vw;
               position: relative;
-              z-index: -1;
+              z-index: 0;
 
               .support__round {
                 z-index: 0;
@@ -406,9 +406,11 @@ body {
       .wrap {
         .content {
           main.main {
+            overflow: hidden;
+
             section {
               &.hero {
-                padding-top: calc(11rem + 11vw);
+                padding-top: calc(15rem + 15vw);
                 padding-bottom: 11rem;
                 position: relative;
                 z-index: 1;
@@ -433,6 +435,49 @@ body {
                     visibility: hidden;
                   }
                 }
+              }
+
+              &.blog-swiper {
+                padding-top: 10rem;
+                padding-bottom: 10rem;
+                position: relative;
+
+                .container {
+                  padding: 0;
+                }
+              }
+
+              &.webdev {
+                padding-top: calc(12rem + 12vw);
+                padding-bottom: calc(5rem + 5vw);
+
+                h1 {
+                  .stagger-title__line.webdev {
+                    &:nth-child(1) {
+                      padding-left: 0;
+                      padding-right: 0;
+                    }
+
+                    &:nth-child(2) {
+                      padding-left: 0;
+                      padding-right: 0;
+                    }
+
+                    &:nth-child(3) {
+                      padding-left: 0;
+                      padding-right: 0;
+                    }
+                  }
+                }
+
+                svg#cliping {
+                  top: 37vmax;
+                  left: 0;
+                }
+              }
+
+              &.overview {
+                padding-bottom: calc(10rem + 10vw);
               }
 
               .home__hero__pastries {
