@@ -221,11 +221,17 @@ body {
         }
       }
 
-      .wpcf7 {
-        padding: 15vh;
+      .container {
+        .page-header {
+          padding: 5em 0 3em 0;
+        }
 
-        form.wpcf7-form {
-          margin: 15vh;
+        .wpcf7 {
+          padding: 0;
+
+          form.wpcf7-form {
+            margin: 0;
+          }
         }
       }
     }

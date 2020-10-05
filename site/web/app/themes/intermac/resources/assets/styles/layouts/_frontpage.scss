@@ -3,7 +3,7 @@ body {
     .wrap {
       .content {
         main.main {
-          overflow: unset;
+          overflow: hidden;
 
           section {
             h1 {
@@ -218,6 +218,8 @@ body {
       .wrap {
         .content {
           main.main {
+            overflow: hidden;
+
             section {
               &.overview {
                 padding-top: calc(30rem + 25vw);
@@ -273,7 +275,8 @@ body {
 
               h1 {
                 &.hero__title {
-                  font-size: 2em;
+                  white-space: nowrap;
+                  font-size: 1.9em;
                   font-weight: 800;
                   position: relative;
                 }
@@ -306,25 +309,35 @@ body {
                   height: 100%;
 
                   .donut--1 {
-                    right: 90%;
-                    bottom: 15vh;
+                    right: 125%;
+                    bottom: 35vh;
+
+                    svg.lblob {
+                      width: 55rem;
+                      height: 55rem;
+                    }
                   }
 
                   .donut--2 {
-                    top: 11rem;
+                    top: 5rem;
                     left: 70%;
+
+                    svg.lblob {
+                      width: 55rem;
+                      height: 55rem;
+                    }
                   }
                 }
               }
 
               &.overview {
                 padding-top: calc(30rem + 25vw);
-                padding-bottom: 0;
+                padding-bottom: calc(15rem + 15vw);
                 position: relative;
 
                 h1 {
                   .stagger-title__line.overview {
-                    padding-bottom: 0;
+                    padding-left: 15px;
 
                     &:nth-child(2) {
                       padding-left: 15px;
@@ -345,45 +358,74 @@ body {
               }
 
               &.webdev {
-                padding-top: calc(3rem + 3vw);
-                padding-bottom: 20rem;
+                padding-top: calc(10rem + 10vw);
+                padding-bottom: calc(25rem + 25vw);
                 position: relative;
                 z-index: 1;
 
                 h1 {
                   .stagger-title__line.webdev {
                     &:nth-child(1) {
-                      padding-left: 4em;
+                      padding: 0;
                     }
 
                     &:nth-child(2) {
-                      padding-left: 6em;
+                      padding: 0;
                     }
 
                     &:nth-child(3) {
-                      padding-left: 4em;
+                      padding: 0;
                     }
                   }
                 }
 
                 .row.justify-content-end {
-                  padding-top: 18em;
+                  padding-top: 25em;
                 }
 
                 svg#cliping {
-                  top: 19vmax;
-                  left: -20vmax;
+                  top: 40vmax;
+                  left: 2vmax;
                 }
               }
 
               &.support {
-                padding-top: 30vw;
+                padding-top: 50vw;
                 padding-bottom: 30vw;
                 position: relative;
                 z-index: -1;
 
                 .support__round {
                   z-index: 0;
+                }
+              }
+
+              .overview__pastries {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                pointer-events: none;
+
+                .pastries__inner {
+                  position: relative;
+                  height: 100%;
+
+                  .donut {
+                    visibility: hidden;
+                  }
+
+                  .donut--2 {
+                    top: 35rem;
+                    left: 30rem;
+
+                    svg.xlblob {
+                      width: 60rem;
+                      height: 60rem;
+                    }
+                  }
                 }
               }
 

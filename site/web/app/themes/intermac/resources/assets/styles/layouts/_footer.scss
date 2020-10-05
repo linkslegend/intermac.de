@@ -168,6 +168,24 @@ footer {
   }
 }
 
+@include media-breakpoint-between(xs, md) {
+  footer {
+    padding: 2.5em 2.5rem 4em 2.5rem;
+
+    .footer_widget {
+      border-bottom: 1px solid var(--footer-border);
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
 @include media-breakpoint-down(xs) {
   .footer_widget {
     .textwidget {

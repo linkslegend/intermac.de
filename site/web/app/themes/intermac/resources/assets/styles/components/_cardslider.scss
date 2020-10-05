@@ -1,4 +1,5 @@
 .swiper-container {
+  overflow: visible;
   padding-top: 10rem;
   padding-bottom: 10rem;
   width: 100%;
@@ -24,6 +25,7 @@
 
       .cardslide_wrapper {
         height: 50rem;
+        background: var(--primary-bg-color);
 
         .image {
           width: 100%;
