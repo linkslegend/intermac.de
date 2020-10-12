@@ -333,7 +333,7 @@
    <div class="container">
       <h1 class="row hero__title title title--xl">
          <div class="col-12 stagger-title__line d-flex justify-content-center"><div>Wir sind für Sie da</div></div>
-         <div class="col-12 stagger-title__line d-flex justify-content-end"><div>Beratung & Support</div></div>
+         <div class="col-12 stagger-title__line d-flex justify-content-lg-end justify-content-center"><div>Beratung & Support</div></div>
       </h1>
       <div class="row justify-content-end">
          <p class="col-lg-7 col-12 mlg-2">

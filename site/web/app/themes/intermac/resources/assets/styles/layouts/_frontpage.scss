@@ -89,7 +89,7 @@ body {
             &.support {
               background: var(--bg-color);
               padding-top: 35vw;
-              padding-bottom: 10vw;
+              padding-bottom: 30vw;
               position: relative;
               z-index: 0;
 
@@ -384,19 +384,28 @@ body {
                 }
 
                 svg#cliping {
-                  top: 40vmax;
-                  left: 2vmax;
+                  top: 34vmax;
+                  left: 10vmax;
+                  width: 60vmax;
                 }
               }
 
               &.support {
                 padding-top: 50vw;
-                padding-bottom: 30vw;
+                padding-bottom: 10vw;
                 position: relative;
                 z-index: -1;
 
                 .support__round {
                   z-index: 0;
+                }
+
+                h1 {
+                  .hero__title {
+                    &:first-of-type {
+                      padding-left: 25px;
+                    }
+                  }
                 }
               }
 
@@ -418,12 +427,26 @@ body {
                   }
 
                   .donut--2 {
-                    top: 35rem;
-                    left: 30rem;
+                    top: 7rem;
+                    left: 37rem;
 
                     svg.xlblob {
                       width: 60rem;
                       height: 60rem;
+                    }
+                  }
+                }
+              }
+
+              .home__webdev__pastries {
+                .pastries__inner {
+                  .donut--2 {
+                    top: 23rem;
+                    left: 26%;
+
+                    svg.lblob {
+                      height: 45rem;
+                      width: 45rem;
                     }
                   }
                 }

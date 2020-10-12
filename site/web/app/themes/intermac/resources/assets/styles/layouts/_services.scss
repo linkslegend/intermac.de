@@ -39,7 +39,7 @@ body {
     .wrap {
       .content {
         main.main {
-          overflow: unset;
+          overflow: hidden;
 
           section {
             h1 {
@@ -103,6 +103,11 @@ body {
               padding-top: calc(20rem + 20vw);
               padding-bottom: calc(5rem + 5vw);
               position: relative;
+
+              .container {
+                position: relative;
+                z-index: 1;
+              }
 
               svg#cliping {
                 top: 20vmax;
@@ -199,15 +204,21 @@ body {
               }
             }
 
-            .overview__pastries {
-              position: absolute;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              left: 0;
-              z-index: 3;
-              pointer-events: none;
+            .home__marketing__pastries {
+              .pastries__inner {
+                .donut--1 {
+                  right: 90%;
+                  bottom: 2vh;
+                }
 
+                .donut--2 {
+                  right: 20%;
+                  bottom: 25vh;
+                }
+              }
+            }
+
+            .ecommerce__pastries {
               .pastries__inner {
                 position: relative;
                 height: 100%;
@@ -340,21 +351,16 @@ body {
               &.hero {
                 padding-top: calc(10rem + 10vw);
                 padding-bottom: 25rem;
-                position: relative;
                 z-index: 1;
               }
 
               h1 {
                 &.hero__title {
-                  color: var(--bg-color);
                   font-size: 2em;
-                  font-weight: 800;
                   position: relative;
                 }
 
                 .stagger-title__line {
-                  position: relative;
-                  text-transform: uppercase;
                   overflow: hidden;
                   height: 75px;
                   margin: 0;
@@ -380,19 +386,28 @@ body {
                   height: 100%;
 
                   .donut--1 {
-                    right: 90%;
-                    bottom: 15vh;
+                    right: 115%;
+                    bottom: 31vh;
+
+                    svg.lblob {
+                      width: 55rem;
+                      height: 55rem;
+                    }
                   }
 
                   .donut--2 {
-                    top: 11rem;
+                    top: -10rem;
                     left: 70%;
+
+                    svg.lblob {
+                      width: 55rem;
+                      height: 55rem;
+                    }
                   }
                 }
               }
 
               &.overview {
-                background: $blue;
                 padding-top: calc(30rem + 25vw);
                 padding-bottom: 0;
                 position: relative;
@@ -409,7 +424,6 @@ body {
               }
 
               &.blog-swiper {
-                background: $blue;
                 padding-top: 1rem;
                 padding-bottom: 1rem;
                 position: relative;
@@ -421,38 +435,59 @@ body {
               }
 
               &.webdev {
-                background: $blue;
-                padding-top: calc(3rem + 3vw);
-                padding-bottom: 20rem;
-                position: relative;
+                padding-top: calc(10rem + 10vw);
+                padding-bottom: calc(3rem + 3vw);
                 z-index: 1;
 
                 h1 {
                   .stagger-title__line.webdev {
                     &:nth-child(1) {
-                      padding-left: 4em;
+                      padding: 0;
                     }
 
                     &:nth-child(2) {
-                      padding-left: 6em;
+                      padding: 0;
                     }
 
                     &:nth-child(3) {
-                      padding-left: 4em;
+                      padding: 0;
                     }
                   }
                 }
 
                 .row.justify-content-end {
-                  padding-top: 18em;
+                  padding-top: 27em;
+                }
+
+                svg#cliping {
+                  top: 20vmax;
+                  left: 1.5em;
+                }
+              }
+
+              &.ecommerce {
+                padding-top: calc(24rem + 23vw);
+                padding-bottom: calc(1rem + 1vw);
+
+                h1 {
+                  &.hero__title {
+                    margin-top: -3em;
+                  }
+                }
+
+                .row.justify-content-start {
+                  padding-top: 27em;
+                }
+
+                svg#cliping {
+                  top: 37vmax;
+                  right: 0;
                 }
               }
 
               &.support {
-                background: $blue;
-                padding-top: 30vw;
+                padding-top: 35vw;
                 padding-bottom: 30vw;
-                position: relative;
                 z-index: -1;
 
                 .support__round {
@@ -464,6 +499,64 @@ body {
                 width: 70%;
                 right: 7rem;
                 height: 70rem;
+              }
+
+              .ecommerce__pastries {
+                display: none;
+              }
+
+              .home__webdev__pastries {
+                .pastries__inner {
+                  .donut--1 {
+                    right: 90%;
+                    bottom: 2vh;
+                  }
+
+                  .donut--2 {
+                    top: 20rem;
+                    left: 30%;
+
+                    svg.lblob {
+                      width: 45rem;
+                      height: 45rem;
+                    }
+                  }
+                }
+              }
+
+              .home__marketing__pastries {
+                .pastries__inner {
+                  .donut--1 {
+                    right: 90%;
+                    bottom: 2vh;
+                  }
+
+                  .donut--2 {
+                    top: 20rem;
+                    left: 30%;
+
+                    svg.lblob {
+                      width: 45rem;
+                      height: 45rem;
+                    }
+                  }
+                }
+              }
+
+              .home__support__pastries {
+                z-index: 1;
+
+                .pastries__inner {
+                  .donut--1 {
+                    right: 55%;
+                    top: 55vh;
+
+                    svg.lblob {
+                      width: 55rem;
+                      height: 55rem;
+                    }
+                  }
+                }
               }
             }
           }
@@ -483,15 +576,66 @@ body {
           main.main {
             section {
               &.hero {
-                padding-top: calc(11rem + 11vw);
-                padding-bottom: 11rem;
+                padding-top: calc(15rem + 15vw);
+                padding-bottom: 9rem;
                 position: relative;
                 z-index: 1;
               }
 
+              &.webdev {
+                svg#cliping {
+                  top: 28vmax;
+                  left: 0;
+                }
+
+                .row.justify-content-end {
+                  padding: 22em 15px 15px 15px;
+                }
+              }
+
+              &.ecommerce {
+                padding-top: calc(20rem + 20vw);
+
+                .row.justify-content-start {
+                  padding: 20em 15px 15px 15px;
+                }
+
+                svg.cliping {
+                  width: 100%;
+                  top: 40vmax;
+                  right: 0;
+                }
+              }
+
+              &.marketing {
+                .row.justify-content-end {
+                  padding: 22em 15px 15px 15px;
+                }
+
+                svg#cliping {
+                  top: 34vmax;
+                  left: 2vmax;
+                  width: 100%;
+                }
+              }
+
+              &.support {
+                padding-top: 35vw;
+                padding-bottom: 0;
+
+                .row.content-has-parallax {
+                  padding: 22em 15px 15px 15px;
+                }
+
+                svg#cliping {
+                  top: 25vmax;
+                  right: 0;
+                  width: 100%;
+                }
+              }
+
               h1 {
                 &.hero__title {
-                  color: var(--bg-color);
                   font-size: 1.4em;
                   font-weight: 800;
                   position: relative;
@@ -529,19 +673,24 @@ body {
                   }
 
                   .donut--2 {
-                    top: 2rem;
-                    left: 70%;
+                    top: -5rem;
+                    left: 65%;
+
+                    svg.blob {
+                      width: 45rem;
+                      height: 45rem;
+                    }
                   }
                 }
               }
 
-              .overview__pastries {
-                z-index: -3;
+              .ecommerce__pastries {
+                z-index: 0;
 
                 .pastries__inner {
                   .donut--1 {
-                    left: -6%;
-                    bottom: 15vh;
+                    left: 18vh;
+                    top: 50vh;
                   }
 
                   .donut--2 {
@@ -556,9 +705,46 @@ body {
                 .pastries__inner {
                   .donut--2 {
                     right: 0;
-                    left: 13rem;
+                    left: 2rem;
                     bottom: 0;
-                    top: 43rem;
+                    top: 17rem;
+
+                    svg.lblob {
+                      width: 40rem;
+                      height: 40rem;
+                    }
+                  }
+                }
+              }
+
+              .home__marketing__pastries {
+                z-index: 0;
+
+                .pastries__inner {
+                  .donut--2 {
+                    right: 0;
+                    left: -7rem;
+                    bottom: 0;
+                    top: 7rem;
+
+                    svg.lblob {
+                      width: 40rem;
+                      height: 40rem;
+                    }
+                  }
+                }
+              }
+
+              .home__support__pastries {
+                .pastries__inner {
+                  .donut--1 {
+                    right: 0;
+                    top: 62vh;
+
+                    svg.lblob {
+                      width: 40rem;
+                      height: 40rem;
+                    }
                   }
                 }
               }

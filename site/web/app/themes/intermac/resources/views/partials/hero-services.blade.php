@@ -83,7 +83,7 @@
 
    <div class="container">
       <h1 class="row hero__title title title--xl">
-         <div class="col-12 stagger-title__line d-flex justify-content-left"><div>eCommerce</div></div>
+         <div class="col-12 stagger-title__line d-flex justify-content-lg-start justify-content-center"><div>eCommerce</div></div>
       </h1>
       <div class="row justify-content-start content-has-parallax">
          <div class="col-lg-7 col-12">
@@ -102,16 +102,18 @@
             </ul>
          </div>
       </div>
-      <div class="home__support__pastries pastries">
-         <div class="pastries__inner parent">
-            <div class="donut donut--1 child">
-               <svg class="lblob opacity-90" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="#00b4d8" d="M38.1,-64.2C47.8,-53.1,52.8,-39.8,56.6,-27.1C60.5,-14.4,63.2,-2.5,65.2,12C67.2,26.5,68.5,43.5,61.4,55C54.2,66.6,38.7,72.7,23.7,74.2C8.6,75.6,-5.9,72.5,-20.6,68.8C-35.3,65.1,-50.2,60.8,-63.1,51.5C-75.9,42.3,-86.7,28.2,-87.8,13.3C-88.9,-1.6,-80.3,-17.2,-72.8,-33.2C-65.4,-49.2,-59,-65.5,-47.1,-75.6C-35.1,-85.6,-17.6,-89.3,-1.7,-86.7C14.2,-84.1,28.5,-75.3,38.1,-64.2Z" transform="translate(100 100)" />
-                </svg>
-            </div>
+   </div>
+
+   <div class="ecommerce__pastries pastries">
+      <div class="pastries__inner parent">
+         <div class="donut donut--1 child">
+            <svg class="lblob opacity-90" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+               <path fill="#00b4d8" d="M38.1,-64.2C47.8,-53.1,52.8,-39.8,56.6,-27.1C60.5,-14.4,63.2,-2.5,65.2,12C67.2,26.5,68.5,43.5,61.4,55C54.2,66.6,38.7,72.7,23.7,74.2C8.6,75.6,-5.9,72.5,-20.6,68.8C-35.3,65.1,-50.2,60.8,-63.1,51.5C-75.9,42.3,-86.7,28.2,-87.8,13.3C-88.9,-1.6,-80.3,-17.2,-72.8,-33.2C-65.4,-49.2,-59,-65.5,-47.1,-75.6C-35.1,-85.6,-17.6,-89.3,-1.7,-86.7C14.2,-84.1,28.5,-75.3,38.1,-64.2Z" transform="translate(100 100)" />
+             </svg>
          </div>
       </div>
    </div>
+
    <svg id="hero_round" class="top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path id="lightgrey" fill-opacity="1" d="M0,128L120,112C240,96,480,64,720,80C960,96,1200,160,1320,192L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
    </svg>
@@ -149,7 +151,7 @@
             </ul>
          </div>
       </div>
-      <div class="home__webdev__pastries pastries">
+      <div class="home__marketing__pastries pastries">
          <div class="pastries__inner parent">
             <div class="donut donut--2 child">
                <svg class="lblob opacity-90" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
