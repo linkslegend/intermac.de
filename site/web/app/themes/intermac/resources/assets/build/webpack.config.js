@@ -55,7 +55,9 @@ let webpackConfig = {
         exclude: [/node_modules(?![/|\\](bootstrap|foundation-sites))/],
         use: [
           { loader: 'cache' },
-          { loader: 'buble', options: { objectAssign: 'Object.assign' } },
+          { loader: 'babel-loader', 
+            options: { cacheDirectory: true, presets: ["@babel/preset-env"]} 
+        },
         ],
       },
       {

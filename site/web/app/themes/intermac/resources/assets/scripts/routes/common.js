@@ -1,3 +1,5 @@
+import 'regenerator-runtime/runtime';
+import 'core-js/stable';
 import barba from '@barba/core';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
@@ -333,52 +335,41 @@ export default {
   },
 
   init() {
-    gsap.set('.svg-wrapper', {
-      scaleX: 0,
-      rotation: 5,
-      xPercent: -150,
-      yPercent: -50,
-      transformOrigin: 'left left',
-      autoAlpha: 1,
-    });
-    barba.init({
-      debug: true,
-      //paused: true,
-      transitions: [
-        {
-          name: 'basic',
-          leave: function () {
-            gsap.fromTo('.svg-wrapper', {
-              rotation: 10,
-              scaleX: 0,
-              xPercent: -20,
-            },
-            {
-              duration: 0.4,
-              xPercent: 0,
-              scaleX: 1,
-              rotation: 0,
-              ease: 'Power4.inOut',
-              onComplete: this.async(),
-              transformOrigin: 'left center',
-            });
+    // Better to traverse the DOM thenleast possible
+    const loadingScreen = document.querySelector('.loading-screen')
+    // Function to add and remove the page transition screen
+    function pageTransitionIn() {
+      return gsap
+        .to(loadingScreen, { duration: .35, scaleY: 1, transformOrigin: 'bottom left'})
+    }
+    function pageTransitionOut() {
+      return gsap
+        .timeline({ delay: 0.15 }) // More readable to put it here
+        .add('start') // Use a label to sync screen and content animation
+        .to(loadingScreen, {
+          duration: 0.35,
+          scaleY: 0,
+          skewX: 0,
+          transformOrigin: 'top left',
+          ease: 'power1.out',
+        }, 'start')
+    }
+    $(function() {
+      barba.init({
+        debug: true,
+        transitions: [{
+          async leave() {
+            await pageTransitionIn()
           },
-          enter: function (data) {
-            data.current.container.parentNode.removeChild(data.current.container);
-            gsap.to('.svg-wrapper', {
-              duration: 0.4,
-              scaleX: 0,
-              xPercent: 20,
-              rotation: -10,
-              transformOrigin: 'right center',
-              ease: 'Power4.inOut',
-              onComplete: this.async(),
-            });
+          async enter(data) {
+            await pageTransitionOut(data.current.container.parentNode.removeChild(data.current.container))
           },
-        },
-      ],
+          async once(data) {
+            await pageTransitionOut(data.current.container)
+          },
+        }],
+      });
     });
-
     // do something before the transition starts
     barba.hooks.before(() => {
       document.querySelector('html').classList.add('is-animating');

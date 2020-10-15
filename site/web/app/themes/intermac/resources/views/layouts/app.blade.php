@@ -2,6 +2,10 @@
 <html {!! get_language_attributes() !!}>
   @include('partials.head')
   <body @php body_class() @endphp>
+    <div class="loading-container">
+      <div class="loading-screen">
+      </div>
+    </div>
     @php do_action('get_header') @endphp
     @include('partials.header')
     <div id="scroll-container">
@@ -21,6 +25,5 @@
       </div>
     </div>
     @php wp_footer() @endphp
-    <div class="svg-wrapper"></div>
   </body>
 </html>

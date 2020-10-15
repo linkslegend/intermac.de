@@ -184,6 +184,28 @@ footer {
       }
     }
   }
+
+  #cookie-notice {
+    .cookie-notice-container {
+      margin: 0 15px;
+      display: inline-block;
+
+      span {
+        &.cn-notice-text {
+          width: 75%;
+          float: left;
+        }
+
+        &.cn-notice-buttons {
+          padding-top: 2em;
+        }
+      }
+
+      a.cn-close-notice {
+        z-index: -1;
+      }
+    }
+  }
 }
 
 @include media-breakpoint-down(xs) {
